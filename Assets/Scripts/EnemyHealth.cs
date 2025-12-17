@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] EnemyData enemyData;
+    private Enemy enemy;
     private float currentHealth;
+
+    void Awake()
+    {
+        enemy = GetComponent<Enemy>();
+    }
 
     void Start()
     {
-        currentHealth = enemyData.maxHealth;
+        currentHealth = enemy.EnemyData.health;
     }
 
     public void TakeDamage(float damage)

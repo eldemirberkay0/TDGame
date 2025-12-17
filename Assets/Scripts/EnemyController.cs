@@ -3,12 +3,18 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private Transform[] waypoints;
+    private Enemy enemy;
     private int currentPointIndex = 0;
-    private int currentSpeed = 2;
+    private float currentSpeed;
+
+    void Awake()
+    {
+        enemy = GetComponent<Enemy>();
+    }
 
     void Start()
     {
-
+        currentSpeed = enemy.EnemyData.speed;
     }
 
     void Update()

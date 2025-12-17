@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 267331230}
   - component: {fileID: 267331229}
   - component: {fileID: 267331231}
+  - component: {fileID: 267331232}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -259,6 +260,19 @@ MonoBehaviour:
   - {fileID: 2097292881}
   - {fileID: 502166320}
   - {fileID: 718090623}
+--- !u!114 &267331232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267331228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e94e9bf8887fc438a77793071b7de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  <EnemyData>k__BackingField: {fileID: 11400000, guid: 405092712f825fb489b9c85bac6d0c0c, type: 2}
 --- !u!1 &502166319
 GameObject:
   m_ObjectHideFlags: 0
