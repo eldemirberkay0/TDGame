@@ -4,10 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Projectile Tower Data", menuName = "Scriptable Objects/Towers/Projectile Tower")]
 public class ProjectileTowerData : TowerData
 {
-    [Header("Projectile Tower Datas")]
-    public GameObject projectile;
-    public float fireRate;
-    [SerializeReference] public List<IEffect> effects;
+    [field: Header("Projectile Tower Datas")]
+    [field: SerializeField] public float Range { get; private set; }
+    [field: SerializeField]public GameObject ProjectilePrefab { get; private set; }
+    [field: SerializeField] public float FireRate { get; private set; }
+    [field: SerializeReference, SerializeField] public List<IEffect> Effects { get; private set; }
 
-    [ContextMenu("Add Damage Effect")] public void AddDamage() { effects.Add(new DamageEffect()); }
+    [ContextMenu("Add Damage Effect")] public void AddDamage() { Effects.Add(new DamageEffect()); }
 }

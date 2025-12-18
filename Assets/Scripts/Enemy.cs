@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [field: SerializeField] public EnemyData EnemyData { get; private set; }
-    public EnemyHealth HealthComponent { get; private set; }
-    public EnemyController ControllerComponent { get; private set; }
+    [field: SerializeField] public EnemyData Stats { get; private set; }
+    public EnemyHealth Health { get; private set; }
+    public EnemyController Controller { get; private set; }
 
     private void Awake()
     {
-        HealthComponent = GetComponent<EnemyHealth>();
-        ControllerComponent = GetComponent<EnemyController>();
+        Health = GetComponent<EnemyHealth>();
+        Controller = GetComponent<EnemyController>();
     }
 }

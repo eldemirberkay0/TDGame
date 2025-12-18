@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb8d5d1664b8924b9a59ee37ae9f605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  waypoints:
+  _waypoints:
   - {fileID: 155793271}
   - {fileID: 2097292881}
   - {fileID: 502166320}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e94e9bf8887fc438a77793071b7de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  <EnemyData>k__BackingField: {fileID: 11400000, guid: 405092712f825fb489b9c85bac6d0c0c, type: 2}
+  <Stats>k__BackingField: {fileID: 11400000, guid: 405092712f825fb489b9c85bac6d0c0c, type: 2}
 --- !u!1 &502166319
 GameObject:
   m_ObjectHideFlags: 0

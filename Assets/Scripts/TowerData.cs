@@ -2,8 +2,7 @@ using UnityEngine;
 
 public abstract class TowerData : ScriptableObject
 {
-    [Header("Base Tower Datas")]
-    public string towerName;
-    public float range;
-    public float price;
+    [field: Header("Base Tower Datas")]
+    [field: SerializeField] public string TowerName { get; private set; }
+    [field: SerializeField] public float Price { get; private set; }
 }

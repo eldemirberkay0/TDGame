@@ -2,15 +2,15 @@ using UnityEngine;
 
 public interface IEffect
 {
-    public void Apply(Enemy enemy);
+    void Apply(IDamageable enemy);
 }
 
 [System.Serializable]
 public class DamageEffect : IEffect
 {
-    [SerializeField] private float damage;
-    public void Apply(Enemy enemy)
+    [SerializeField] private float _damage;
+    public void Apply(IDamageable damageable)
     {
-        enemy.HealthComponent.TakeDamage(damage);
+        damageable.TakeDamage(_damage);
     }
 }

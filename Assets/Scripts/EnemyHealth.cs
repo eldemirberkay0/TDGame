@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    private Enemy enemy;
-    private float currentHealth;
+    private Enemy _enemy;
+    private float _currentHealth;
 
     void Awake()
     {
-        enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<Enemy>();
     }
 
     void Start()
     {
-        currentHealth = enemy.EnemyData.health;
+        _currentHealth = _enemy.Stats.MaxHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0) { Die(); }
+        _currentHealth -= damage;
+        if (_currentHealth <= 0) { Die(); }
     }
 
     public void Die()
