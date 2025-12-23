@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb8d5d1664b8924b9a59ee37ae9f605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  _waypoints:
+  waypoints:
   - {fileID: 155793271}
   - {fileID: 2097292881}
   - {fileID: 502166320}

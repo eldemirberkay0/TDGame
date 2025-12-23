@@ -2,31 +2,31 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Transform[] _waypoints;
-    private Enemy _enemy;
-    private int _currentPointIndex = 0;
-    private float _currentSpeed;
+    [SerializeField] private Transform[] waypoints;
+    private Enemy enemy;
+    private int currentPointIndex = 0;
+    private float currentSpeed;
 
     void Awake()
     {
-        _enemy = GetComponent<Enemy>();
+        enemy = GetComponent<Enemy>();
     }
 
     void Start()
     {
-        _currentSpeed = _enemy.Stats.Speed;
+        currentSpeed = enemy.Stats.baseSpeed;
     }
 
     void Update()
     {
-        Vector2 dir = (_waypoints[_currentPointIndex].position - transform.position).normalized;
-        Vector3 velocity = new Vector3(dir.x, dir.y, 0) * Time.deltaTime * _currentSpeed;
+        Vector2 dir = (waypoints[currentPointIndex].position - transform.position).normalized;
+        Vector3 velocity = new Vector3(dir.x, dir.y, 0) * Time.deltaTime * currentSpeed;
         transform.position += velocity;
-        if (Vector2.Distance(transform.position, _waypoints[_currentPointIndex].position) < 0.1f)
+        if (Vector2.Distance(transform.position, waypoints[currentPointIndex].position) < 0.1f)
         {
             Debug.Log("Arrived");
-            _currentPointIndex++;
+            currentPointIndex++;
         }
-        if (_currentPointIndex >= _waypoints.Length) { Destroy(gameObject); }
+        if (currentPointIndex >= waypoints.Length) { Destroy(gameObject); }
     }
 }
