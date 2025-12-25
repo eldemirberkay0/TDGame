@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void Start()
     {
-        currentHealth = enemy.Stats.maxHealth;
+        currentHealth = enemy.stats.maxHealth;
     }
 
     public void TakeDamage(float damage)

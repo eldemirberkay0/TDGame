@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        currentSpeed = enemy.Stats.baseSpeed;
+        currentSpeed = enemy.stats.baseSpeed;
     }
 
     void Update()

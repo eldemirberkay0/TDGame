@@ -2,5 +2,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [field: SerializeField] public EnemyData Stats { get; private set; }
+    public EnemyData stats;
+    public EnemyHealth Health { get; private set; }
+    public EnemyController Controller { get; private set; }
+
+    private void Awake()
+    {
+        Controller = GetComponent<EnemyController>();
+        Health = GetComponent<EnemyHealth>();
+    }
 }

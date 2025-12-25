@@ -8,7 +8,7 @@ public class ProjectileTowerData : TowerData
     public float range;
     public GameObject projectilePrefab;
     public float fireRate;
-    [SerializeReference] public List<IEffect> Effects;
+    [SerializeReference] public List<IEffect> effects;
 
-    [ContextMenu("Add Damage Effect")] public void AddDamage() { Effects.Add(new DamageEffect()); }
+    [ContextMenu("Add Damage Effect")] public void AddDamage() { effects.Add(new DamageEffect()); }
 }
