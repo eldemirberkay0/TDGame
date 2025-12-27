@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
+  m_Name: ArrowTower
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
+  towerName: Arrow Tower
+  price: 5
+  range: 5
+  shootInterval: 0.001
+  projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
+  projectileSpeed: 7
+  effects:
+  - rid: 4925182701996081220
+  references:
+    version: 2
+    RefIds:
+    - rid: 4925182701996081220
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 5

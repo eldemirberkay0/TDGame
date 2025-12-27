@@ -6,9 +6,10 @@ public class ProjectileTowerData : TowerData
 {
     [Header("Projectile Tower Datas")]
     public float range;
+    public float shootInterval;
     public GameObject projectilePrefab;
-    public float fireRate;
+    public float projectileSpeed;
     [SerializeReference] public List<IEffect> effects;
 
-    [ContextMenu("Add Damage Effect")] public void AddDamage() { effects.Add(new DamageEffect()); }
+    [ContextMenu("Add Damage Effect")] private void AddDamage() { effects.Add(new DamageEffect()); }
 }

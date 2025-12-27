@@ -8,6 +8,7 @@ public interface IEffect
 [System.Serializable]
 public class DamageEffect : IEffect
 {
+    [Header("Damage Effect")]
     [SerializeField] private float damage;
     public void Apply(Enemy enemy)
     {
