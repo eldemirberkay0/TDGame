@@ -6,14 +6,14 @@ public class Projectile : MonoBehaviour
     protected const float MIN_REACH_DISTANCE = 0.2f;
     protected Transform target;
     protected float speed;
-    protected List<IEffect> effectsToApply;
+    protected List<Effect> effectsToApply;
 
     protected void Update()
     {
         GoToTarget();
     }
 
-    public virtual void InitProjectile(Transform target, float speed, List<IEffect> effectsToApply)
+    public virtual void InitProjectile(Transform target, float speed, List<Effect> effectsToApply)
     {
         this.target = target;
         this.speed = speed;
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnHitTarget()
     {
-        foreach (IEffect effect in effectsToApply) { effect.Apply(target.gameObject.GetComponent<Enemy>()); }
+        foreach (Effect effect in effectsToApply) { effect.Apply(target.gameObject.GetComponent<Enemy>()); }
     }
 
     protected void DestroyProjectile()

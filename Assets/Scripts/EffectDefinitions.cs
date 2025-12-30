@@ -1,17 +1,29 @@
 using UnityEngine;
 
-public interface IEffect
+[System.Serializable]
+public abstract class Effect
 {
-    void Apply(Enemy enemy);
+    public abstract void Apply(Enemy enemy);
 }
 
 [System.Serializable]
-public class DamageEffect : IEffect
+public class DamageEffect : Effect
 {
     [Header("Damage Effect")]
-    [SerializeField] private float damage;
-    public void Apply(Enemy enemy)
+    [SerializeField] protected float damage;
+    public override void Apply(Enemy enemy)
     {
         enemy.Health.TakeDamage(damage);
+    }
+}
+
+[System.Serializable]
+public class SlowEffect : Effect
+{
+    [Header("Slow Effect")]
+    [SerializeField] protected float slowPercent;
+    public override void Apply(Enemy enemy)
+    {
+        throw new System.NotImplementedException();
     }
 }
