@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -37,7 +38,11 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnHitTarget()
     {
-        foreach (Effect effect in effectsToApply) { effect.Apply(target.gameObject.GetComponent<Enemy>()); }
+        foreach (Effect effect in effectsToApply) 
+        {
+            Effect effectToApply = effect.Clone();
+            effectToApply.Apply(target.gameObject.GetComponent<Enemy>()); 
+        }
     }
 
     protected void DestroyProjectile()

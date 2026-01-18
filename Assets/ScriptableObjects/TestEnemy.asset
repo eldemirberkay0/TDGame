@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   maxHealth: 999999
-  baseSpeed: 2
+  baseSpeed: 4

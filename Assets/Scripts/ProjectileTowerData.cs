@@ -12,4 +12,5 @@ public class ProjectileTowerData : TowerData
     [SerializeReference] public List<Effect> effects;
 
     [ContextMenu("Add Damage Effect")] private void AddDamage() { effects.Add(new DamageEffect()); }
+    [ContextMenu("Add Slow Effect")] private void AddSlow() { effects.Add(new SlowEffect()); }
 }

@@ -51,5 +51,5 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         if (towerData == null) return;
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         if (collider != null) { collider.radius = towerData.range; }
-    }   
+    }
 }
