@@ -47,14 +47,9 @@ public class SlowEffect : TimerEffect
         timer.OnTimerFinished = OnEffectFinished;
         timer.Start();
         enemy.EffectHandler.AddEffect(this);
-        if (CurrentSlow == null)
+        if (CurrentSlow != GetMaxSlow())
         {
-            CurrentSlow = this;
-            enemy.Controller.speedPercent -= slowPercent;
-        }
-        else if (CurrentSlow != GetMaxSlow())
-        {
-            enemy.Controller.speedPercent += CurrentSlow.slowPercent;
+            if (CurrentSlow != null) enemy.Controller.speedPercent += CurrentSlow.slowPercent;
             CurrentSlow = GetMaxSlow();
             enemy.Controller.speedPercent -= CurrentSlow.slowPercent;
         }
@@ -64,21 +59,13 @@ public class SlowEffect : TimerEffect
     {
         timer.OnTimerFinished = null;
         timer = null;
+        enemy.EffectHandler.CurrentEffects.Remove(this);
         if (CurrentSlow == this) 
         {
-            enemy.Controller.speedPercent += slowPercent;
-            CurrentSlow = null;
+            enemy.Controller.speedPercent += CurrentSlow.slowPercent;
+            CurrentSlow = GetMaxSlow();
+            if (CurrentSlow != null) { enemy.Controller.speedPercent -= CurrentSlow.slowPercent; }
         }
-        enemy.EffectHandler.CurrentEffects.Remove(this);
-
-        if (GetMaxSlow() != null)
-        {
-            GetMaxSlow().Apply(enemy);
-            /*
-            enemy.Controller.speedPercent -= GetMaxSlow().slowPercent;
-            CurrentSlow = GetMaxSlow(); */
-        }
-        
     }
 
     protected SlowEffect GetMaxSlow()

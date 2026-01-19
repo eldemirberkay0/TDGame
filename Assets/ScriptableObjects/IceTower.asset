@@ -26,5 +26,5 @@ MonoBehaviour:
     - rid: 2868606484162019395
       type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
       data:
-        slowPercent: 75
+        slowPercent: 60
         duration: 1
