@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
-  m_Name: ArrowTower
+  m_Name: IceTower
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerName: Arrow Tower
-  price: 5
+  towerName: 
+  price: 0
   range: 5
-  shootInterval: 0.5
+  shootInterval: 1
   projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
   projectileSpeed: 7
   effects:
-  - rid: 2868606467022258243
+  - rid: 2868606484162019395
   references:
     version: 2
     RefIds:
-    - rid: 2868606467022258243
+    - rid: 2868606484162019395
       type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
       data:
-        slowPercent: 15
+        slowPercent: 75
         duration: 1

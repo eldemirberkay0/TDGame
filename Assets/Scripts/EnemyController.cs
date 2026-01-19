@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -6,16 +7,7 @@ public class EnemyController : MonoBehaviour
     private Enemy enemy;
     private int currentPointIndex = 0;
     private float currentSpeed;
-    private float speedPercent = 100;
-    public float SpeedPercent
-    {
-        get { return speedPercent; }
-        set
-        {
-            if (value < 0) { speedPercent = 0; }
-            else { speedPercent = value; }
-        }
-    }
+    public float speedPercent = 100;
 
     void Awake()
     {
@@ -30,7 +22,9 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         Vector2 dir = (waypoints[currentPointIndex].position - transform.position).normalized;
-        Vector3 velocity = new Vector3(dir.x, dir.y, 0) * Time.deltaTime * currentSpeed * speedPercent / 100;
+        float actualSpeed = speedPercent;
+        if (actualSpeed < 0) { actualSpeed = 0; }
+        Vector3 velocity = new Vector3(dir.x, dir.y, 0) * Time.deltaTime * currentSpeed * actualSpeed / 100;
         transform.position += velocity;
         if (Vector2.Distance(transform.position, waypoints[currentPointIndex].position) < 0.1f)
         {

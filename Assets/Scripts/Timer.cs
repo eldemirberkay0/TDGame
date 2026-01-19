@@ -32,4 +32,7 @@ public class Timer
             OnTimerFinished?.Invoke();
         }
     }
+
+    public void Pause() => IsRunning = false;
+    public void Resume() => IsRunning = true;
 }

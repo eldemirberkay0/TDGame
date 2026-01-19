@@ -10,4 +10,3 @@ public class EnemyEffectHandler : MonoBehaviour
         CurrentEffects.Add(effect);
     }
 }
-
