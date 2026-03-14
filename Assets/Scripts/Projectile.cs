@@ -38,10 +38,9 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnHitTarget()
     {
-        foreach (Effect effect in effectsToApply) 
+        foreach (Effect effect in effectsToApply)
         {
-            Effect effectToApply = effect.Clone();
-            effectToApply.Apply(target.gameObject.GetComponent<Enemy>()); 
+            effect.Apply(target.gameObject.GetComponent<Enemy>());
         }
     }
 

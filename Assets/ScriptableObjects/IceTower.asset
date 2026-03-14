@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: 
   price: 0
   range: 5
-  shootInterval: 1
+  shootInterval: 7
   projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
   projectileSpeed: 7
   effects:
@@ -27,4 +27,4 @@ MonoBehaviour:
       type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
       data:
         slowPercent: 60
-        duration: 1
+        duration: 3

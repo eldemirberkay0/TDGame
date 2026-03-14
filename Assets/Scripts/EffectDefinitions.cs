@@ -1,15 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using FlexTimer;
 
 [System.Serializable]
 public abstract class Effect
 {
     public abstract void Apply(Enemy enemy);
-    public virtual Effect Clone()
-    {
-        return (Effect)this.MemberwiseClone();
-    }
 }
 
 [System.Serializable]
@@ -36,58 +32,20 @@ public class SlowEffect : TimerEffect
     [Header("Slow Effect")]
     [SerializeField] protected float slowPercent;
     [SerializeField] protected float duration;
-    Enemy enemy;
     protected Timer timer;
-    protected static SlowEffect CurrentSlow = null;
+    protected Enemy targetEnemy;
 
     public override void Apply(Enemy enemy)
     {
-        this.enemy = enemy;
-        timer = new Timer(duration);
-        timer.OnTimerFinished = OnEffectFinished;
+        targetEnemy = enemy;
+        timer = new Timer(duration, OnEffectFinished);
+        targetEnemy.Controller.speedPercent -= slowPercent;
         timer.Start();
-        enemy.EffectHandler.AddEffect(this);
-        if (CurrentSlow != GetMaxSlow())
-        {
-            if (CurrentSlow != null) enemy.Controller.speedPercent += CurrentSlow.slowPercent;
-            CurrentSlow = GetMaxSlow();
-            enemy.Controller.speedPercent -= CurrentSlow.slowPercent;
-        }
     }
 
     protected override void OnEffectFinished()
     {
-        timer.OnTimerFinished = null;
-        timer = null;
-        enemy.EffectHandler.CurrentEffects.Remove(this);
-        if (CurrentSlow == this) 
-        {
-            enemy.Controller.speedPercent += CurrentSlow.slowPercent;
-            CurrentSlow = GetMaxSlow();
-            if (CurrentSlow != null) { enemy.Controller.speedPercent -= CurrentSlow.slowPercent; }
-        }
-    }
-
-    protected SlowEffect GetMaxSlow()
-    {
-        SlowEffect maxSlow = null;
-        float maxSlowPerc = 0;
-        List<SlowEffect> slows = new();
-        foreach (Effect effect in enemy.EffectHandler.CurrentEffects)
-        {
-            if (effect is SlowEffect slowEffect)
-            {
-                slows.Add(slowEffect);
-            }
-        }
-        foreach (SlowEffect slowEffect in slows)
-        {
-            if (slowEffect.slowPercent > maxSlowPerc) 
-            { 
-                maxSlow = slowEffect;
-                maxSlowPerc = maxSlow.slowPercent; 
-            }
-        }
-        return maxSlow;
+        targetEnemy.Controller.speedPercent += slowPercent;
+        timer.Cancel();
     }
 }

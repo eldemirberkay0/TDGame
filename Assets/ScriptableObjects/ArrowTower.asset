@@ -19,12 +19,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
   projectileSpeed: 7
   effects:
-  - rid: 2868606467022258243
+  - rid: 141279876893638841
   references:
     version: 2
     RefIds:
-    - rid: 2868606467022258243
-      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+    - rid: 141279876893638841
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        slowPercent: 45
-        duration: 25
+        damage: 5
