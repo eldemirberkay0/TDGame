@@ -39,13 +39,13 @@ public class SlowEffect : TimerEffect
     {
         targetEnemy = enemy;
         timer = new Timer(duration, OnEffectFinished);
-        targetEnemy.Controller.speedPercent -= slowPercent;
+        targetEnemy.Controller.ChangeSpeedPercent(-slowPercent);
         timer.Start();
     }
 
     protected override void OnEffectFinished()
     {
-        targetEnemy.Controller.speedPercent += slowPercent;
+        targetEnemy.Controller.ChangeSpeedPercent(slowPercent);
         timer.Cancel();
     }
 }
