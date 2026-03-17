@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] private Image healthBar;
+
     private Enemy enemy;
     private float currentHealth;
 
@@ -19,11 +22,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         currentHealth -= damage;
         Debug.Log(currentHealth);
+        healthBar.fillAmount = currentHealth / enemy.stats.health;
         if (currentHealth <= 0) { Die(); }
     }
 
     public void Die()
     {
-        throw new System.NotImplementedException();
+        // throw new System.NotImplementedException();
     }
 }

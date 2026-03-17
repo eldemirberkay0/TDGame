@@ -1,5 +1,4 @@
 using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -7,8 +6,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform[] waypoints;
 
     private Animator animator;
-
+    private SpriteRenderer spriteRenderer;
     private Enemy enemy;
+
     private float currentSpeed;
     private float speedMultiplier = 1;
     private int currentPointIndex = 0;
@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
         currentSpeed = enemy.stats.speed * speedMultiplier;
         if (currentSpeed < 0) { currentSpeed = 0; }
         if (animator.speed < 0) { animator.speed = 0; }
+        SetFlip();
     }
 
     private void Update()
@@ -38,6 +40,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log("Next waypoint");
             currentPointIndex++;
             if (currentPointIndex >= waypoints.Length) { Arrive(); }
+            SetFlip();
         }
     }
 
@@ -55,5 +58,12 @@ public class EnemyController : MonoBehaviour
     private void Arrive()
     {
         Destroy(gameObject);
+    }
+
+    private void SetFlip()
+    {
+        bool shouldTurnLeft = transform.position.x > waypoints[currentPointIndex].transform.position.x && !spriteRenderer.flipX;
+        bool shouldTurnRight = transform.position.x < waypoints[currentPointIndex].transform.position.x && spriteRenderer.flipX;
+        if (shouldTurnLeft || shouldTurnRight) { spriteRenderer.flipX = !spriteRenderer.flipX; }
     }
 }
