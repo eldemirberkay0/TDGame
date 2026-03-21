@@ -11,7 +11,19 @@ public class Projectile : MonoBehaviour
 
     protected void Update()
     {
+        if (target == null)
+        {
+            DestroyProjectile();
+            return;
+        }
+
         GoToTarget();
+
+        if (Vector2.Distance(transform.position, target.position) <= MIN_REACH_DISTANCE)
+        {
+            OnHitTarget();
+            DestroyProjectile();
+        }
     }
 
     public virtual void InitProjectile(Transform target, float speed, List<Effect> effectsToApply)
@@ -19,21 +31,12 @@ public class Projectile : MonoBehaviour
         this.target = target;
         this.speed = speed;
         this.effectsToApply = effectsToApply;
+        gameObject.SetActive(true);
     }
 
     protected virtual void GoToTarget()
     {
-        if (target == null)
-        {
-            DestroyProjectile();
-            return;
-        }
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, target.position) <= MIN_REACH_DISTANCE)
-        {
-            OnHitTarget();
-            DestroyProjectile();
-        }
     }
 
     protected virtual void OnHitTarget()

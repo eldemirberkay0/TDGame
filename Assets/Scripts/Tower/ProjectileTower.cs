@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
 
 public class ProjectileTower : Tower<ProjectileTowerData>
@@ -19,9 +18,10 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         if (targetEnemy == null && enemiesInRange.Count > 0) { targetEnemy = enemiesInRange[0]; }
     }
 
-    protected void Shoot()
+    protected virtual void Shoot()
     {
         GameObject projectile = Instantiate(towerData.projectilePrefab, transform.position, transform.rotation);
+        projectile.SetActive(false);
         projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileSpeed, towerData.effects);
     }
 
@@ -33,13 +33,13 @@ public class ProjectileTower : Tower<ProjectileTowerData>
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemiesInRange.Add(enemy);
             if (targetEnemy == null) { targetEnemy = enemy; }
-        } 
+        }
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7) // Enemy layer is 7
-        { 
+        {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (targetEnemy == enemy) { targetEnemy = null; }
             enemiesInRange.Remove(enemy);

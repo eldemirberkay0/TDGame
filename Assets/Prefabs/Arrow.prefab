@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3386625892168474278}
   - component: {fileID: 2029989109092834557}
-  - component: {fileID: 3674175719969833230}
+  - component: {fileID: 6306957749675055508}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.71, y: 2.28, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.4641509, g: 0.2325829, b: 0.17077243, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 63379b459a4940b48aa2b920e0fcb9a9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3674175719969833230
+--- !u!114 &6306957749675055508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,6 +101,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4331660800917004844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad16585204c6bc8428d927e21b7b3a2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c5693c8a58cdfd45a3498ccde4f21f1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  m_EditorClassIdentifier: Assembly-CSharp::Arrow
