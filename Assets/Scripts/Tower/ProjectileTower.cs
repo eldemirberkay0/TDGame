@@ -20,7 +20,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
 
     protected virtual void Shoot()
     {
-        GameObject projectile = Instantiate(towerData.projectilePrefab, transform.position, transform.rotation);
+        GameObject projectile = Instantiate(towerData.projectilePrefab, transform.position + towerData.projectilePosOffset, transform.rotation);
         projectile.SetActive(false);
         projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileSpeed, towerData.effects);
     }
