@@ -15,12 +15,13 @@ MonoBehaviour:
   towerName: Arrow Tower
   price: 5
   range: 2
-  shootInterval: 0.6
+  shootInterval: 1
   projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
   projectilePosOffset: {x: 0, y: 0.29, z: 0}
   projectileSpeed: 2
   effects:
   - rid: 141279876893638841
+  - rid: 141280081090707542
   references:
     version: 2
     RefIds:
@@ -28,3 +29,8 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         damage: 2
+    - rid: 141280081090707542
+      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+      data:
+        slowPercent: 65
+        duration: 2

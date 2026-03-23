@@ -839,7 +839,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_Radius: 2
 --- !u!212 &1142599070
 SpriteRenderer:
   serializedVersion: 2
@@ -981,7 +981,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_Radius: 2
 --- !u!212 &1269825120
 SpriteRenderer:
   serializedVersion: 2
@@ -1231,6 +1231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArcherTower
   towerData: {fileID: 11400000, guid: 8039b2b9891be8c4a9a3f52b85338f04, type: 2}
   archerAnimator: {fileID: 1858239180}
+  archerRenderer: {fileID: 1858239181}
 --- !u!1 &1631777358
 GameObject:
   m_ObjectHideFlags: 0
