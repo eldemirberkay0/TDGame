@@ -21,7 +21,6 @@ MonoBehaviour:
   projectileSpeed: 2
   effects:
   - rid: 141279876893638841
-  - rid: 141280081090707542
   references:
     version: 2
     RefIds:
@@ -29,8 +28,3 @@ MonoBehaviour:
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
         damage: 2
-    - rid: 141280081090707542
-      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
-      data:
-        slowPercent: 65
-        duration: 2

@@ -1,15 +1,16 @@
 using UnityEngine;
 
-[System.Serializable]
-public struct Level
+[CreateAssetMenu(fileName = "New Level", menuName = "Scriptable Objects/Level")]
+public class Level : ScriptableObject
 {
+    public int initialGold;
+    public int health;
     public Wave[] waves;
 }
 
 [System.Serializable]
 public struct Wave
 {
-    public float delay;
     public EnemyGroup[] enemyGroups;
 }
 

@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log("Next waypoint");
             currentPointIndex++;
             if (currentPointIndex >= waypoints.Length) { Arrive(); }
-            SetFlip();
+            if (currentPointIndex < waypoints.Length) { SetFlip(); }
         }
     }
 
@@ -57,6 +57,8 @@ public class EnemyController : MonoBehaviour
 
     private void Arrive()
     {
+        PlayerStats.Health--;
+        UIManager.Instance.UpdateLevelInfoUI();
         Destroy(gameObject);
     }
 

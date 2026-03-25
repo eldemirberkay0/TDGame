@@ -1,14 +1,13 @@
 using System.Collections;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using FlexTimer;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Level[] levels;
+    private Level level;
 
-    void Awake()
+    private void OnEnable()
     {
         GameManager.OnLevelStarted += SetLevel;
     }
@@ -17,14 +16,16 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Level Started");
         Debug.Log("Spawning waves in 1 seconds");
-        TimerManager.RegisterEvent(1, () => StartCoroutine(SpawnWaves(levels[level - 1])));
+        this.level = levels[level - 1];
+        TimerManager.RegisterEvent(1, () => StartCoroutine(SpawnWaves(this.level)));
+        PlayerStats.SetGold(this.level.initialGold);
+        PlayerStats.SetHealth(this.level.health);
     }
 
     private IEnumerator SpawnWaves(Level level)
     {
         foreach (Wave wave in level.waves)
         {
-            yield return new WaitForSeconds(wave.delay);
             foreach (EnemyGroup group in wave.enemyGroups)
             {
                 for (int i = 0; i < group.count; i++)
@@ -35,5 +36,10 @@ public class LevelManager : MonoBehaviour
                 yield return new WaitForSeconds(group.delay);
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnLevelStarted -= SetLevel;
     }
 }
