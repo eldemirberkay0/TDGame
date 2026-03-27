@@ -43,10 +43,4 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.OnLevelStarted -= SetLevel;
     }
-
-    public void BuildTower(GameObject obj)
-    {
-        GameObject temp = Instantiate(obj, pos, transform.rotation);
-        temp.SetActive(true);
-    }
 }

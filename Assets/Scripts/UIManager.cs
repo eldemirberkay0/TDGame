@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject towerSelectionMenu;
     public static UIManager Instance;
-    [SerializeField] private GameObject towerMenuCanvas;
-    [SerializeField] private LevelManager levelManager;
+
     void Awake()
     {
         Instance = this;
@@ -18,7 +18,12 @@ public class UIManager : MonoBehaviour
 
     public void ShowTowerMenu()
     {
-        towerMenuCanvas.SetActive(true);
-        levelManager.pos = transform.position;
+        towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
+        towerSelectionMenu.SetActive(true);
+    }
+
+    public void CloseTowerMenu()
+    {
+        towerSelectionMenu.SetActive(false);
     }
 }
