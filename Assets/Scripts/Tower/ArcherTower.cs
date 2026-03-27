@@ -7,8 +7,9 @@ public class ArcherTower : ProjectileTower
     [SerializeField] private SpriteRenderer archerRenderer;
     private Timer animTimer;
 
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         animTimer = new Timer(0.5f / archerAnimator.speed, () => base.Shoot());
         archerAnimator.speed = 1 / towerData.shootInterval;
     }

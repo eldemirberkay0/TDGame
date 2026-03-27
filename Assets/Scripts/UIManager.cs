@@ -4,7 +4,8 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-
+    [SerializeField] private GameObject towerMenuCanvas;
+    [SerializeField] private LevelManager levelManager;
     void Awake()
     {
         Instance = this;
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowTowerMenu()
     {
-
+        towerMenuCanvas.SetActive(true);
+        levelManager.pos = transform.position;
     }
 }

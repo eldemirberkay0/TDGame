@@ -18,6 +18,7 @@ public class BezierProjectile : Projectile
         t = 1 / speed;
         controlPoint.x = (initialPos.x + target.position.x) / 2f;
         controlPoint.y = Mathf.Max(initialPos.y, target.position.y) + 2f;
+        passedTime = 0;
     }
 
     protected override void GoToTarget()

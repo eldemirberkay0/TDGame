@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Level[] levels;
     private Level level;
+    public Vector3 pos;
 
     private void OnEnable()
     {
@@ -41,5 +42,11 @@ public class LevelManager : MonoBehaviour
     private void OnDisable()
     {
         GameManager.OnLevelStarted -= SetLevel;
+    }
+
+    public void BuildTower(GameObject obj)
+    {
+        GameObject temp = Instantiate(obj, pos, transform.rotation);
+        temp.SetActive(true);
     }
 }

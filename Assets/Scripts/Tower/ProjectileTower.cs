@@ -3,9 +3,15 @@ using UnityEngine;
 
 public class ProjectileTower : Tower<ProjectileTowerData>
 {
+    [SerializeField] protected Transform projectileContainer;
     protected float reloadTime;
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Enemy targetEnemy = null;
+
+    protected virtual void Start()
+    {
+        ObjectPooler.CreatePool(towerData.projectilePrefab, 10, projectileContainer);
+    }
 
     protected void Update()
     {
@@ -20,9 +26,10 @@ public class ProjectileTower : Tower<ProjectileTowerData>
 
     protected virtual void Shoot()
     {
-        GameObject projectile = Instantiate(towerData.projectilePrefab, transform.position + towerData.projectilePosOffset, transform.rotation);
-        projectile.SetActive(false);
+        GameObject projectile = ObjectPooler.GetObject(projectileContainer);
+        projectile.transform.position = transform.position + towerData.projectilePosOffset;
         projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileSpeed, towerData.effects);
+        Debug.Log("Shooted");
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
