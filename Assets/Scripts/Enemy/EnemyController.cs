@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -57,7 +56,7 @@ public class EnemyController : MonoBehaviour
 
     private void Arrive()
     {
-        PlayerStats.Health--;
+        PlayerStats.SetLive(PlayerStats.Lives - 1);
         UIManager.Instance.UpdateLevelInfoUI();
         Destroy(gameObject);
     }

@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
   m_Name: IceTower
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerName: Ice Tower
-  price: 0
-  range: 5
-  shootInterval: 7
-  projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
-  projectileSpeed: 7
+  towerPrefab: {fileID: 5499071103286112466, guid: c455bc0fd6001524db6c379da9495e2a, type: 3}
+  price: 4
+  range: 2
+  shootInterval: 1
+  animTime: 0.5
+  projectilePrefab: {fileID: 161665524840879777, guid: 817d632d12467324d8e876ea236e813d, type: 3}
+  projectileSpeed: 3
+  projectilePosOffset: {x: 0, y: 0.29, z: 0}
   effects:
   - rid: 2868606484162019395
   references:

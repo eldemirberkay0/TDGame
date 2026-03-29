@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
   m_Name: ArrowTower
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerName: Arrow Tower
+  towerPrefab: {fileID: 2709884828299058188, guid: bf0a8d0e8e09d52488853aed32d15fdd, type: 3}
   price: 5
   range: 2
   shootInterval: 1
+  animTime: 0.5
   projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
-  projectilePosOffset: {x: 0, y: 0.29, z: 0}
   projectileSpeed: 2
+  projectilePosOffset: {x: 0, y: 0.29, z: 0}
   effects:
   - rid: 141279876893638841
   references:
@@ -27,4 +28,4 @@ MonoBehaviour:
     - rid: 141279876893638841
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 2
+        damage: 4

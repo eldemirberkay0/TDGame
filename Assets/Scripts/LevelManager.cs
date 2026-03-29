@@ -13,14 +13,14 @@ public class LevelManager : MonoBehaviour
         GameManager.OnLevelStarted += SetLevel;
     }
 
-    private void SetLevel(int level)
+    private void SetLevel()
     {
         Debug.Log("Level Started");
         Debug.Log("Spawning waves in 1 seconds");
-        this.level = levels[level - 1];
+        this.level = levels[PlayerStats.CurrentLevel - 1];
         TimerManager.RegisterEvent(1, () => StartCoroutine(SpawnWaves(this.level)));
-        PlayerStats.SetGold(this.level.initialGold);
-        PlayerStats.SetHealth(this.level.health);
+        PlayerStats.SetCoin(this.level.initialGold);
+        PlayerStats.SetLive(this.level.health);
     }
 
     private IEnumerator SpawnWaves(Level level)

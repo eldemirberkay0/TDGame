@@ -15,10 +15,10 @@ public class Node : MonoBehaviour
         }
     }
 
-    public void BuildTower(GameObject tower)
+    public void BuildTower(TowerData tower)
     {
-        GameObject temp = Instantiate(tower, CurrentNode.transform.position, CurrentNode.transform.rotation);
-        // temp.SetActive(true);
+        Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation);
         UIManager.Instance.CloseTowerMenu();
+        PlayerStats.SetCoin(PlayerStats.Coin - tower.price);
     }
 }

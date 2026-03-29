@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7e52e01a182a43a40b3664a5e66e990e
+guid: f3f3fe0812c2660419625f20dda9b027
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9220851101260477051
-    second: arrow_tower_icon_0
+      213: -3292202997072059189
+    second: ice_tower_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow_tower_icon_0
+      name: ice_tower_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 10
-        height: 15
+        x: 0
+        y: 2
+        width: 69
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58d899e07c4f80080800000000000000
-      internalID: -9220851101260477051
+      spriteID: bc42b0721debf42d0800000000000000
+      internalID: -3292202997072059189
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arrow_tower_icon_0: -9220851101260477051
+      ice_tower_0: -3292202997072059189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

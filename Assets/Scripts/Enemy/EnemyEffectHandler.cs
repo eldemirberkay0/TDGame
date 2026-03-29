@@ -5,8 +5,6 @@ public class EnemyEffectHandler : MonoBehaviour
 {
     public List<Effect> CurrentEffects { get; private set; } = new List<Effect>();
 
-    public void AddEffect(Effect effect)
-    {
-        CurrentEffects.Add(effect);
-    }
+    public void AddEffect(Effect effect) => CurrentEffects.Add(effect);
+    public void RemoveEffect(Effect effect) => CurrentEffects.Remove(effect);
 }

@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
     protected virtual void GoToTarget()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.right = target.position - transform.position;
     }
 
     protected virtual void OnHitTarget()
