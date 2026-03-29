@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3386625892168474278}
   - component: {fileID: 2029989109092834557}
-  - component: {fileID: 6306957749675055508}
+  - component: {fileID: 3819958636719380950}
+  - component: {fileID: 3598162922696024495}
+  - component: {fileID: 8189186421545298756}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -92,7 +94,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &6306957749675055508
+--- !u!114 &3819958636719380950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331660800917004844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1bb7185b59e414eaf0d6fbd9104aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileHit
+--- !u!114 &3598162922696024495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331660800917004844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad16585204c6bc8428d927e21b7b3a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+--- !u!114 &8189186421545298756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,4 +129,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c5693c8a58cdfd45a3498ccde4f21f1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Arrow
+  m_EditorClassIdentifier: Assembly-CSharp::BezierProjectile

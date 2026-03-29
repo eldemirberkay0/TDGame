@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BezierProjectile : Projectile
+public class BezierProjectile : ProjectileMovement
 {
     protected float t;
     protected float passedTime;
@@ -11,9 +11,9 @@ public class BezierProjectile : Projectile
     protected Vector2 pos2;
     protected Vector2 newPos;
 
-    public override void InitProjectile(Transform target, float speed, List<Effect> effectsToApply, bool isGuided)
+    public override void Init(Transform target, float speed, bool isGuided)
     {
-        base.InitProjectile(target, speed, effectsToApply, isGuided);
+        base.Init(target, speed, isGuided);
         initialPos = transform.position;
         t = 1 / speed;
         controlPoint.x = (initialPos.x + targetPos.x) / 2f;
@@ -23,7 +23,6 @@ public class BezierProjectile : Projectile
 
     protected override void GoToTarget()
     {
-
         passedTime += Time.deltaTime;
         pos1.x = Mathf.Lerp(initialPos.x, controlPoint.x, passedTime / t);
         pos1.y = Mathf.Lerp(initialPos.y, controlPoint.y, passedTime / t);

@@ -18,7 +18,7 @@ MonoBehaviour:
   shootInterval: 2
   animTime: 0.5
   projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
-  projectileSpeed: 1
+  projectileSpeed: 2
   isProjectileGuided: 1
   projectilePosOffset: {x: 0, y: 0.29, z: 0}
   effects:

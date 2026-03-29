@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8130207615171138621}
   - component: {fileID: 7238057121297258731}
   - component: {fileID: 614791076281225834}
+  - component: {fileID: 5047193594127574490}
+  - component: {fileID: 8076739386734779118}
   m_Layer: 0
   m_Name: Ice
   m_TagString: Untagged
@@ -104,3 +106,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16585204c6bc8428d927e21b7b3a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+--- !u!114 &5047193594127574490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161665524840879777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466aaa6137bbf55409b110683f817f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileMovement
+--- !u!114 &8076739386734779118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161665524840879777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1bb7185b59e414eaf0d6fbd9104aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileHit
