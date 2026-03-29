@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,37 +6,42 @@ public class Projectile : MonoBehaviour
     protected const float MIN_REACH_DISTANCE = 0.2f;
     protected Transform target;
     protected float speed;
+    protected bool isGuided;
+    protected Vector3 targetPos;
     protected List<Effect> effectsToApply;
 
-    protected void Update()
+    protected virtual void Update()
     {
-        if (target == null)
+        if (isGuided && target == null)
         {
             DestroyProjectile();
             return;
         }
+        if (isGuided) { targetPos = target.position; }
 
         GoToTarget();
 
-        if (Vector2.Distance(transform.position, target.position) <= MIN_REACH_DISTANCE)
+        if (Vector2.Distance(transform.position, targetPos) <= MIN_REACH_DISTANCE)
         {
             OnHitTarget();
             DestroyProjectile();
         }
     }
 
-    public virtual void InitProjectile(Transform target, float speed, List<Effect> effectsToApply)
+    public virtual void InitProjectile(Transform target, float speed, List<Effect> effectsToApply, bool isGuided)
     {
         this.target = target;
         this.speed = speed;
         this.effectsToApply = effectsToApply;
+        this.isGuided = isGuided;
+        targetPos = target.position;
         gameObject.SetActive(true);
     }
 
     protected virtual void GoToTarget()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        transform.right = target.position - transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        transform.right = targetPos - transform.position;
     }
 
     protected virtual void OnHitTarget()

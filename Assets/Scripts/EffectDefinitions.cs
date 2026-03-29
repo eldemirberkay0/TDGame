@@ -44,7 +44,7 @@ public class SlowEffect : TimerEffect
                 Effect currentEffect = enemy.EffectHandler.CurrentEffects[i];
                 if (currentEffect is SlowEffect currentSlow)
                 {
-                    if (currentSlow.slowPercent > this.slowPercent) { return; }
+                    if (currentSlow.slowPercent >= this.slowPercent) { return; }
                     currentSlow.OnEffectFinished();
                     enemy.EffectHandler.RemoveEffect(currentSlow);
                 }
@@ -60,7 +60,7 @@ public class SlowEffect : TimerEffect
 
     protected override void OnEffectFinished()
     {
-        targetEnemy.Controller.ChangeSpeedPercent(slowPercent);
+        if (targetEnemy.EffectHandler.CurrentEffects.Contains(this)) { targetEnemy.Controller.ChangeSpeedPercent(slowPercent); }
         timer.Cancel();
         timer = null;
     }

@@ -19,7 +19,8 @@ MonoBehaviour:
   animTime: 0.5
   projectilePrefab: {fileID: 161665524840879777, guid: 817d632d12467324d8e876ea236e813d, type: 3}
   projectileSpeed: 3
-  projectilePosOffset: {x: 0, y: 0.29, z: 0}
+  isProjectileGuided: 1
+  projectilePosOffset: {x: 0, y: 1, z: 0}
   effects:
   - rid: 2868606484162019395
   references:

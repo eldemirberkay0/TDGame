@@ -7,9 +7,10 @@ public class ProjectileTowerData : TowerData
     [Header("Projectile Tower Datas")]
     public float range;
     public float shootInterval;
-    public float animTime = 0.5f;
+    public float animTime;
     public GameObject projectilePrefab;
     public float projectileSpeed;
+    public bool isProjectileGuided;
     public Vector3 projectilePosOffset;
     [SerializeReference, SubclassSelector] public List<Effect> effects;
 }

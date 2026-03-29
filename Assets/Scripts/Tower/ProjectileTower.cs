@@ -29,7 +29,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         GameObject projectile = ObjectPooler.GetObject(projectileContainer);
         projectile.transform.position = transform.position + towerData.projectilePosOffset;
         if (targetEnemy == null) { return; }
-        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileSpeed, towerData.effects);
+        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileSpeed, towerData.effects, towerData.isProjectileGuided);
         Debug.Log("Shooted");
     }
 

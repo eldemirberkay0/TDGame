@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
-  m_Name: ArrowTower
+  m_Name: VolcanoTower
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerPrefab: {fileID: 2709884828299058188, guid: bf0a8d0e8e09d52488853aed32d15fdd, type: 3}
+  towerPrefab: {fileID: 0}
   price: 5
   range: 2
   shootInterval: 2
   animTime: 0.5
-  projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
-  projectileSpeed: 1
-  isProjectileGuided: 1
-  projectilePosOffset: {x: 0, y: 0.29, z: 0}
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 2
+  isProjectileGuided: 0
+  projectilePosOffset: {x: 0, y: 0.2, z: 0}
   effects:
-  - rid: 141279876893638841
+  - rid: 141280219997405184
   references:
     version: 2
     RefIds:
-    - rid: 141279876893638841
+    - rid: 141280219997405184
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 2
+        damage: 0
