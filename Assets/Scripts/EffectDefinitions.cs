@@ -6,6 +6,7 @@ using FlexTimer;
 public abstract class Effect
 {
     public abstract void Apply(Enemy enemy);
+
 }
 
 [System.Serializable]
@@ -60,7 +61,7 @@ public class SlowEffect : TimerEffect
 
     protected override void OnEffectFinished()
     {
-        if (targetEnemy.EffectHandler.CurrentEffects.Contains(this)) { targetEnemy.Controller.ChangeSpeedPercent(slowPercent); }
+        if (targetEnemy.EffectHandler.CurrentEffects.Contains(this) && targetEnemy != null && targetEnemy.isActiveAndEnabled) { targetEnemy.Controller.ChangeSpeedPercent(slowPercent); }
         timer.Cancel();
         timer = null;
     }

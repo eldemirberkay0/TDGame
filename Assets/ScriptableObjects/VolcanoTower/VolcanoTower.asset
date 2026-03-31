@@ -15,18 +15,6 @@ MonoBehaviour:
   towerPrefab: {fileID: 0}
   price: 5
   range: 2
-  shootInterval: 2
+  shootInterval: 3
   animTime: 0.5
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 2
-  isProjectileGuided: 0
-  projectilePosOffset: {x: 0, y: 0.2, z: 0}
-  effects:
-  - rid: 141280219997405184
-  references:
-    version: 2
-    RefIds:
-    - rid: 141280219997405184
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        damage: 0
+  projectileData: {fileID: 11400000, guid: 2ead73d21a17e03458a94fc2c311bf48, type: 2}

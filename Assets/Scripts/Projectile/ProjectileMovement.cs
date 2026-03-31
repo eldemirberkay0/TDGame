@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class ProjectileMovement : MonoBehaviour
 {
@@ -18,7 +17,11 @@ public class ProjectileMovement : MonoBehaviour
 
     protected void Update()
     {
-        if (isGuided && target == null) { DestroyProjectile(); }
+        if (isGuided && target == null)
+        {
+            DestroyProjectile();
+            return;
+        }
         if (isGuided) { targetPos = target.position; }
         GoToTarget();
         if (Vector2.Distance(transform.position, targetPos) <= MIN_REACH_DISTANCE)

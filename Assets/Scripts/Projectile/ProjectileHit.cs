@@ -3,16 +3,10 @@ using System.Collections.Generic;
 
 public class ProjectileHit : MonoBehaviour
 {
-    protected Projectile projectile;
     protected List<Effect> effectsToApply;
     protected Transform target;
 
-    protected void Awake()
-    {
-        projectile = GetComponent<Projectile>();
-    }
-
-    public void Init(Transform target, List<Effect> effects)
+    public virtual void Init(Transform target, List<Effect> effects)
     {
         this.effectsToApply = effects;
         this.target = target;

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad16585204c6bc8428d927e21b7b3a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  projectileData: {fileID: 11400000, guid: 6b43c944bfd44eb4683ac745fe5c77eb, type: 2}
 --- !u!114 &5047193594127574490
 MonoBehaviour:
   m_ObjectHideFlags: 0

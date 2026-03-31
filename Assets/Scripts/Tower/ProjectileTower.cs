@@ -8,9 +8,14 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Enemy targetEnemy = null;
 
+    protected void Awake()
+    {
+        GetComponent<CircleCollider2D>().radius = towerData.range;
+    }
+
     protected virtual void Start()
     {
-        ObjectPooler.CreatePool(towerData.projectilePrefab, 10, projectileContainer);
+        ObjectPooler.CreatePool(towerData.projectileData.projectilePrefab, 10, projectileContainer);
     }
 
     protected void Update()
@@ -27,9 +32,9 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     protected virtual void Shoot()
     {
         GameObject projectile = ObjectPooler.GetObject(projectileContainer);
-        projectile.transform.position = transform.position + towerData.projectilePosOffset;
+        projectile.transform.position = transform.position + towerData.projectileData.projectilePosOffset;
         if (targetEnemy == null) { return; }
-        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileSpeed, towerData.isProjectileGuided, towerData.effects);
+        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileData.projectileSpeed, towerData.projectileData.isProjectileGuided, towerData.projectileData.effects);
         Debug.Log("Shooted");
     }
 
