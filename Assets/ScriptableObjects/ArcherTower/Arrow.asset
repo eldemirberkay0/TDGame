@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645205025b526a74580d50f06b32d71f, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  projectilePrefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
-  projectileSpeed: 2
-  isProjectileGuided: 1
-  projectilePosOffset: {x: 0, y: 0.29, z: 0}
+  prefab: {fileID: 4331660800917004844, guid: 5b03a3ca7a8c83b4da4548ed875c7ba3, type: 3}
+  speed: 2
+  isGuided: 1
+  posOffset: {x: 0, y: 0.29, z: 0}
   effects:
   - rid: 141280256256639049
   references:

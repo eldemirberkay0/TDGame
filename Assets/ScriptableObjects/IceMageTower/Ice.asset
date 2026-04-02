@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645205025b526a74580d50f06b32d71f, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileData
-  projectilePrefab: {fileID: 161665524840879777, guid: 817d632d12467324d8e876ea236e813d, type: 3}
-  projectileSpeed: 2
-  isProjectileGuided: 1
-  projectilePosOffset: {x: 0, y: 0.3, z: 0}
+  prefab: {fileID: 161665524840879777, guid: 817d632d12467324d8e876ea236e813d, type: 3}
+  speed: 3
+  isGuided: 1
+  posOffset: {x: 0, y: 0.3, z: 0}
   effects:
   - rid: 141280256256639050
   references:

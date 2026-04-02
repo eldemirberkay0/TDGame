@@ -15,7 +15,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
 
     protected virtual void Start()
     {
-        ObjectPooler.CreatePool(towerData.projectileData.projectilePrefab, 10, projectileContainer);
+        ObjectPooler.CreatePool(towerData.projectileData.prefab, 10, projectileContainer);
     }
 
     protected void Update()
@@ -32,9 +32,9 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     protected virtual void Shoot()
     {
         GameObject projectile = ObjectPooler.GetObject(projectileContainer);
-        projectile.transform.position = transform.position + towerData.projectileData.projectilePosOffset;
+        projectile.transform.position = transform.position + towerData.projectileData.posOffset;
         if (targetEnemy == null) { return; }
-        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.projectileData.projectileSpeed, towerData.projectileData.isProjectileGuided, towerData.projectileData.effects);
+        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform);
         Debug.Log("Shooted");
     }
 

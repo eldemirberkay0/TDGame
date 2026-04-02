@@ -13,10 +13,10 @@ public class Projectile : MonoBehaviour
         HitController = GetComponent<ProjectileHit>();
     }
 
-    public virtual void InitProjectile(Transform target, float speed, bool isGuided, List<Effect> effectsToApply)
+    public void InitProjectile(Transform target)
     {
-        MovementController.Init(target, speed, isGuided);
-        HitController.Init(target, effectsToApply);
+        MovementController.Init(target, projectileData.speed, projectileData.isGuided);
+        HitController.Init(target, projectileData.effects);
         gameObject.SetActive(true);
     }
 

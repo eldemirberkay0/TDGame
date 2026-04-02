@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AoEProjectile : ProjectileHit
+public class AoEProjectileHit : ProjectileHit
 {
     protected AoEProjectileData aoeProjectileData;
     protected List<Enemy> enemies = new();
