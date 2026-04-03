@@ -6,13 +6,13 @@ using FlexTimer;
 public abstract class Effect
 {
     public abstract void Apply(Enemy enemy);
-
 }
 
 [System.Serializable]
 public abstract class TimerEffect : Effect
 {
     protected abstract void OnEffectFinished();
+    protected Timer timer;
 }
 
 [System.Serializable]
@@ -33,11 +33,18 @@ public class SlowEffect : TimerEffect
     [Header("Slow Effect")]
     [SerializeField] protected float slowPercent;
     [SerializeField] protected float duration;
-    protected Timer timer;
+
     protected Enemy targetEnemy;
 
     public override void Apply(Enemy enemy)
     {
+        if (timer != null)
+        {
+            timer.Cancel();
+            timer = null;
+        }
+        targetEnemy = null;
+
         if (enemy.EffectHandler.CurrentEffects.Count > 0)
         {
             for (int i = enemy.EffectHandler.CurrentEffects.Count - 1; i > 0; i--)
