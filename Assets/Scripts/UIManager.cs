@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLevelInfoUI()
     {
-        Debug.Log("New player gold: " + PlayerStats.Coin + ", new player health: " + PlayerStats.Lives);
+        Debug.Log("New player gold: " + PlayerStats.Gold + ", new player health: " + PlayerStats.Lives);
     }
 
     public void ShowTowerMenu()
@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
         GameManager.OnLevelStarted -= ShowLevelUI;
     }
 
-    public void UpdateCoin() { elements[UI_ELEMENT.COIN_TEXT].GetComponent<TMP_Text>().text = ((int)PlayerStats.Coin).ToString(); }
+    public void UpdateCoin() { elements[UI_ELEMENT.COIN_TEXT].GetComponent<TMP_Text>().text = ((int)PlayerStats.Gold).ToString(); }
     public void UpdateLive() { elements[UI_ELEMENT.LIVES_TEXT].GetComponent<TMP_Text>().text = PlayerStats.Lives.ToString(); }
 }
 

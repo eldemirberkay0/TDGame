@@ -19,6 +19,6 @@ public class Node : MonoBehaviour
     {
         Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation);
         UIManager.Instance.CloseTowerMenu();
-        PlayerStats.SetCoin(PlayerStats.Coin - tower.price);
+        PlayerStats.SetGold(PlayerStats.Gold - tower.price);
     }
 }

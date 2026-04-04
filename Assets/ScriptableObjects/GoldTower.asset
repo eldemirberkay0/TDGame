@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bc39dbeae3f8e458dbf6a6a7c3e10d, type: 3}
-  m_Name: Slime
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  health: 20
-  speed: 2
-  reward: 3
+  m_Script: {fileID: 11500000, guid: d6213a0490e24894b8612d37d6f50d1a, type: 3}
+  m_Name: GoldTower
+  m_EditorClassIdentifier: Assembly-CSharp::PassiveTowerData
+  towerPrefab: {fileID: 0}
+  price: 0
+  isIntervalPassive: 0

@@ -168,9 +168,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 117
-        width: 383
-        height: 423
+        y: 80
+        width: 449
+        height: 460
       spriteId: b0f836258015f904e99f8cc33b35e71d
     linkedCells: []
     tileCells: []

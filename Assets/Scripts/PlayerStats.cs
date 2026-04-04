@@ -4,7 +4,7 @@ public static class PlayerStats
 {
     public static Action OnGameOver;
 
-    public static float Coin { get; private set; }
+    public static float Gold { get; private set; }
     public static int Lives { get; private set; }
     public static int MaxLevel { get; private set; }
     public static int CurrentLevel { get; private set; }
@@ -20,9 +20,9 @@ public static class PlayerStats
         OnGameOver?.Invoke();
     }
 
-    public static void SetCoin(float amount)
+    public static void SetGold(float amount)
     {
-        Coin = amount;
+        Gold = amount;
         UIManager.Instance.UpdateCoin();
     }
 

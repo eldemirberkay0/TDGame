@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IceMageAnimation
+  m_Name: ArcherShootAnim
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -4549388218463153738, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.083333336
-      value: {fileID: 1782848777, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.15
-      value: {fileID: -293667695, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.25
-      value: {fileID: 1200292592, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.33333334
-      value: {fileID: 1301523379, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.5833333
-      value: {fileID: 1200292592, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.71666664
-      value: {fileID: -293667695, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - time: 0.85
-      value: {fileID: 1782848777, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
+      value: {fileID: 5731584507761909605, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - time: 0.11666667
+      value: {fileID: 884238964, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - time: 0.23333333
+      value: {fileID: -716265806, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - time: 0.35
+      value: {fileID: -1717471502, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - time: 0.41666666
+      value: {fileID: -716265806, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - time: 0.46666667
+      value: {fileID: 884238964, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - time: 0.51666665
+      value: {fileID: 5731584507761909605, guid: fe613088e0255124784469c82acda24a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -58,20 +56,19 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -4549388218463153738, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: 1782848777, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: -293667695, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: 1200292592, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: 1301523379, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: 1200292592, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: -293667695, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
-    - {fileID: 1782848777, guid: dc90257d173170e4cbb3156cd040c4ef, type: 3}
+    - {fileID: 5731584507761909605, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - {fileID: 884238964, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - {fileID: -716265806, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - {fileID: -1717471502, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - {fileID: -716265806, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - {fileID: 884238964, guid: fe613088e0255124784469c82acda24a, type: 3}
+    - {fileID: 5731584507761909605, guid: fe613088e0255124784469c82acda24a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8666667
+    m_StopTime: 0.5333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
