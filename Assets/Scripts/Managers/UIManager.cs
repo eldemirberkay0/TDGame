@@ -1,4 +1,3 @@
-using FlexTimer;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject waveTimerCanvas;
     [SerializeField] private Image waveTime;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null)
         {

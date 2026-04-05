@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
+using FlexTimer;
 using UnityEngine;
 
 public class ProjectileTower : Tower<ProjectileTowerData>
@@ -12,13 +12,15 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     [SerializeField] protected SpriteRenderer manRenderer;
     [SerializeField] private float animTime = 0.5f;
 
-    protected float reloadTime;
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Enemy targetEnemy = null;
+    protected Timer reloadTimer = null;
+    protected bool canShoot = true;
 
     protected void Awake()
     {
         GetComponent<CircleCollider2D>().radius = towerData.range;
+        reloadTimer = new Timer(towerData.shootInterval, () => canShoot = true);
     }
 
     protected virtual void Start()
@@ -29,12 +31,12 @@ public class ProjectileTower : Tower<ProjectileTowerData>
 
     protected void Update()
     {
-        if (reloadTime <= 0 && targetEnemy != null)
+        if (canShoot && targetEnemy != null)
         {
-            StartCoroutine(Shoot());
-            reloadTime = towerData.shootInterval;
+            Shoot();
+            canShoot = false;
+            reloadTimer.Restart(towerData.shootInterval);
         }
-        reloadTime -= Time.deltaTime;
         if (targetEnemy == null && enemiesInRange.Count > 0) { targetEnemy = enemiesInRange[0]; }
     }
 
@@ -47,6 +49,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         yield return new WaitForSeconds(animTime);
         if (targetEnemy == null) { yield return null; }
         projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects);
+        reloadTimer.Restart();
         Debug.Log("Shooted");
     }
 
@@ -71,10 +74,16 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         }
     }
 
-    protected virtual void OnValidate()
+    protected void OnValidate()
     {
         if (towerData == null) return;
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         if (collider != null) { collider.radius = towerData.range; }
+    }
+
+    protected void OnDestroy()
+    {
+        reloadTimer?.Cancel();
+        reloadTimer = null;
     }
 }

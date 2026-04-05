@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
             waveTimer.Start();
             return;
         }
-        waveTimer.Reset(timeBeforeWave);
+        waveTimer.Restart(timeBeforeWave);
     }
 
     private IEnumerator SpawnWave(Level level, int wave)

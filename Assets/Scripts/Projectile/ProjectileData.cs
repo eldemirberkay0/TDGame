@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "New Projectile Data", menuName = "Scriptable Objects/Projectiles/Projectile")]
 public class ProjectileData : ScriptableObject
