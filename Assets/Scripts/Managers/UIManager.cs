@@ -11,7 +11,11 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null) { return; }
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
 
         elements = new();
@@ -23,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnLevelStarted += ShowLevelUI;
+        GameManager.OnGameStarted += ShowLevelUI;
     }
 
     public void UpdateLevelInfoUI()
@@ -51,7 +55,7 @@ public class UIManager : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.OnLevelStarted -= ShowLevelUI;
+        GameManager.OnGameStarted -= ShowLevelUI;
     }
 
     public void UpdateCoin() { elements[UI_ELEMENT.COIN_TEXT].GetComponent<TMP_Text>().text = ((int)PlayerStats.Gold).ToString(); }

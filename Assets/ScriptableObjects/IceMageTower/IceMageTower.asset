@@ -16,5 +16,14 @@ MonoBehaviour:
   price: 4
   range: 2
   shootInterval: 1
-  animTime: 0.5
+  effects:
+  - rid: 4776619478875111505
   projectileData: {fileID: 11400000, guid: 6b43c944bfd44eb4683ac745fe5c77eb, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4776619478875111505
+      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+      data:
+        slowPercent: 30
+        duration: 3

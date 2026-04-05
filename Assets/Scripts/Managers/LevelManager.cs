@@ -6,11 +6,10 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private Level[] levels;
     private Level level;
-    public Vector3 pos;
 
     private void OnEnable()
     {
-        GameManager.OnLevelStarted += SetLevel;
+        GameManager.OnGameStarted += SetLevel;
     }
 
     private void SetLevel()
@@ -41,6 +40,6 @@ public class LevelManager : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.OnLevelStarted -= SetLevel;
+        GameManager.OnGameStarted -= SetLevel;
     }
 }

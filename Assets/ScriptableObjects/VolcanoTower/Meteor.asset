@@ -13,16 +13,7 @@ MonoBehaviour:
   m_Name: Meteor
   m_EditorClassIdentifier: Assembly-CSharp::AoEProjectileData
   prefab: {fileID: 6960826709076712833, guid: 8087e83e28e827e47accc90ededf5ee3, type: 3}
-  speed: 1.5
+  speed: 0.5
   isGuided: 0
   posOffset: {x: 0, y: 0.29, z: 0}
-  effects:
-  - rid: 141280256256639051
   effectRadius: 0.5
-  references:
-    version: 2
-    RefIds:
-    - rid: 141280256256639051
-      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        damage: 5
