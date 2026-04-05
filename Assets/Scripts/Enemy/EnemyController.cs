@@ -57,7 +57,6 @@ public class EnemyController : MonoBehaviour
     private void Arrive()
     {
         PlayerStats.SetLive(PlayerStats.Lives - 1);
-        UIManager.Instance.UpdateLevelInfoUI();
         Destroy(gameObject);
     }
 

@@ -5,8 +5,13 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private UIDictionaryElement[] dictionaryElements;
-    private Dictionary<UI_ELEMENT, GameObject> elements;
+    // Bad and unflexible UI manager but enough for now
+    [SerializeField] private TMP_Text livesText;
+    [SerializeField] private TMP_Text goldsText;
+    [SerializeField] private GameObject levelInfoCanvas;
+    [SerializeField] private GameObject towerSelectionMenu;
+    [SerializeField] private GameObject startButton;
+
     public static UIManager Instance;
 
     void Awake()
@@ -17,12 +22,6 @@ public class UIManager : MonoBehaviour
             return;
         }
         Instance = this;
-
-        elements = new();
-        foreach (UIDictionaryElement element in dictionaryElements)
-        {
-            elements[element.elementType] = element.element;
-        }
     }
 
     private void OnEnable()
@@ -30,25 +29,21 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted += ShowLevelUI;
     }
 
-    public void UpdateLevelInfoUI()
-    {
-        Debug.Log("New player gold: " + PlayerStats.Gold + ", new player health: " + PlayerStats.Lives);
-    }
-
     public void ShowTowerMenu()
     {
-        elements[UI_ELEMENT.TOWER_SELECTION_MENU].transform.position = Node.CurrentNode.transform.position;
-        elements[UI_ELEMENT.TOWER_SELECTION_MENU].SetActive(true);
+        towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
+        towerSelectionMenu.SetActive(true);
     }
 
     public void CloseTowerMenu()
     {
-        elements[UI_ELEMENT.TOWER_SELECTION_MENU].SetActive(false);
+        towerSelectionMenu.SetActive(false);
     }
 
     private void ShowLevelUI()
     {
-        elements[UI_ELEMENT.LEVEL_INFO_CANVAS].SetActive(true);
+        startButton.SetActive(false);
+        levelInfoCanvas.SetActive(true);
         UpdateCoin();
         UpdateLive();
     }
@@ -58,22 +53,6 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted -= ShowLevelUI;
     }
 
-    public void UpdateCoin() { elements[UI_ELEMENT.COIN_TEXT].GetComponent<TMP_Text>().text = ((int)PlayerStats.Gold).ToString(); }
-    public void UpdateLive() { elements[UI_ELEMENT.LIVES_TEXT].GetComponent<TMP_Text>().text = PlayerStats.Lives.ToString(); }
-}
-
-[System.Serializable]
-public enum UI_ELEMENT
-{
-    LEVEL_INFO_CANVAS,
-    COIN_TEXT,
-    LIVES_TEXT,
-    TOWER_SELECTION_MENU
-}
-
-[System.Serializable]
-public struct UIDictionaryElement
-{
-    public UI_ELEMENT elementType;
-    public GameObject element;
+    public void UpdateCoin() { goldsText.text = ((int)PlayerStats.Gold).ToString(); }
+    public void UpdateLive() { livesText.text = PlayerStats.Lives.ToString(); }
 }

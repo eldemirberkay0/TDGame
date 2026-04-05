@@ -29,7 +29,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Die()
     {
         PlayerStats.SetGold(PlayerStats.Gold + enemy.stats.reward);
-        UIManager.Instance.UpdateLevelInfoUI();
         Destroy(gameObject);
         // throw new System.NotImplementedException();
     }
