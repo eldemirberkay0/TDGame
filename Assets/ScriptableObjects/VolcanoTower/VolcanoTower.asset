@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
   m_Name: VolcanoTower
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerPrefab: {fileID: 0}
+  towerPrefab: {fileID: 4159025145891913593, guid: 75492a2e72c1432478e07c298bf4d7c1, type: 3}
   price: 5
   range: 2
   shootInterval: 3

@@ -1,17 +1,18 @@
 using UnityEngine;
 using FlexTimer;
 
-public class MannedProjectileTower : ProjectileTower
+public class AnimatedProjectileTower : ProjectileTower
 {
     [SerializeField] private Animator manAnimator;
     [SerializeField] private SpriteRenderer manRenderer;
+    [SerializeField] private float animTime = 0.5f;
     private Timer animTimer;
 
     protected override void Start()
     {
         base.Start();
-        manAnimator.speed = 1 / towerData.animTime / towerData.shootInterval;
-        animTimer = new Timer(towerData.animTime / manAnimator.speed, () => base.Shoot());
+        manAnimator.speed = 1 / animTime / towerData.shootInterval;
+        animTimer = new Timer(animTime / manAnimator.speed, () => base.Shoot());
     }
 
     protected override void Shoot()

@@ -34,7 +34,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         GameObject projectile = ObjectPooler.GetObject(projectileContainer);
         projectile.transform.position = transform.position + towerData.projectileData.posOffset;
         if (targetEnemy == null) { return; }
-        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform);
+        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects);
         Debug.Log("Shooted");
     }
 

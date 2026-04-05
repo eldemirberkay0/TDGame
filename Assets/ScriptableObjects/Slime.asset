@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   health: 20
-  speed: 2
+  speed: 0.5
   reward: 3

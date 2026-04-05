@@ -147,6 +147,7 @@ MonoBehaviour:
   projectileContainer: {fileID: 2528407547153939845}
   manAnimator: {fileID: 7336145208946096323}
   manRenderer: {fileID: 7236313126508406749}
+  animTime: 0.5
 --- !u!1 &7300265551816420727
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,5 +8,4 @@ public class ProjectileData : ScriptableObject
     public float speed;
     public bool isGuided;
     public Vector3 posOffset;
-    [SerializeReference, SubclassSelector] public List<Effect> effects;
 }
