@@ -11,14 +11,14 @@ public class Node : MonoBehaviour
         if (isEmpty)
         {
             CurrentNode = this;
-            UIManager.Instance.ShowTowerMenu();
+            UIManager.Instance.SetTowerMenu(true);
         }
     }
 
     public void BuildTower(TowerData tower)
     {
         Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation);
-        UIManager.Instance.CloseTowerMenu();
+        UIManager.Instance.SetTowerMenu(false);
         PlayerStats.SetGold(PlayerStats.Gold - tower.price);
     }
 }

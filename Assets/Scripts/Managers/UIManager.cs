@@ -1,18 +1,21 @@
-using System;
-using System.Collections.Generic;
+using FlexTimer;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     // Bad and unflexible UI manager but enough for now
+    public static UIManager Instance { get; private set; }
+
+    // Many tightly coupled direct references but anyways
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text goldsText;
     [SerializeField] private GameObject levelInfoCanvas;
     [SerializeField] private GameObject towerSelectionMenu;
     [SerializeField] private GameObject startButton;
-
-    public static UIManager Instance;
+    [SerializeField] private GameObject waveTimerCanvas;
+    [SerializeField] private Image waveTime;
 
     void Awake()
     {
@@ -29,15 +32,16 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted += ShowLevelUI;
     }
 
-    public void ShowTowerMenu()
+    public void SetWaveTimer(bool isActive)
     {
-        towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
-        towerSelectionMenu.SetActive(true);
+        waveTimerCanvas.SetActive(isActive);
+        // waveTimer.transform.position = 
     }
 
-    public void CloseTowerMenu()
+    public void SetTowerMenu(bool isActive)
     {
-        towerSelectionMenu.SetActive(false);
+        towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
+        towerSelectionMenu.SetActive(isActive);
     }
 
     private void ShowLevelUI()
@@ -53,6 +57,8 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted -= ShowLevelUI;
     }
 
-    public void UpdateCoin() { goldsText.text = ((int)PlayerStats.Gold).ToString(); }
-    public void UpdateLive() { livesText.text = PlayerStats.Lives.ToString(); }
+    public void SetWaveTimeFill(float amount) { waveTime.fillAmount = amount; }
+
+    public void UpdateCoin() => goldsText.text = ((int)PlayerStats.Gold).ToString();
+    public void UpdateLive() => livesText.text = PlayerStats.Lives.ToString();
 }

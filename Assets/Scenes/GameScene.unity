@@ -3449,7 +3449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1806886148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3568,6 +3568,8 @@ MonoBehaviour:
   levelInfoCanvas: {fileID: 850083548}
   towerSelectionMenu: {fileID: 1237433724}
   startButton: {fileID: 722537102}
+  waveTimerCanvas: {fileID: 1806886147}
+  waveTime: {fileID: 1851899392}
 --- !u!4 &1839064621
 Transform:
   m_ObjectHideFlags: 0
@@ -3641,13 +3643,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cf06d46120092e04b9c097b5f4f0fe0a, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1851899393
@@ -3962,9 +3964,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658705338}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1731951532}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: StartWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
