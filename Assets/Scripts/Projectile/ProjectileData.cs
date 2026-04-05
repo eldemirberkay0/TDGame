@@ -8,4 +8,7 @@ public class ProjectileData : ScriptableObject
     public float speed;
     public bool isGuided;
     public Vector3 posOffset;
+
+    [Header("Optionals")]
+    public float effectRadius;
 }

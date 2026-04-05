@@ -1,9 +1,17 @@
+using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class ProjectileTower : Tower<ProjectileTowerData>
 {
     [SerializeField] protected Transform projectileContainer;
+
+    [Header("Optionals")]
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected SpriteRenderer manRenderer;
+    [SerializeField] private float animTime = 0.5f;
+
     protected float reloadTime;
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Enemy targetEnemy = null;
@@ -16,24 +24,28 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     protected virtual void Start()
     {
         ObjectPooler.CreatePool(towerData.projectileData.prefab, 10, projectileContainer);
+        if (animator != null) { animator.speed = 1 / animTime / towerData.shootInterval; }
     }
 
     protected void Update()
     {
         if (reloadTime <= 0 && targetEnemy != null)
         {
-            Shoot();
+            StartCoroutine(Shoot());
             reloadTime = towerData.shootInterval;
         }
         reloadTime -= Time.deltaTime;
         if (targetEnemy == null && enemiesInRange.Count > 0) { targetEnemy = enemiesInRange[0]; }
     }
 
-    protected virtual void Shoot()
+    protected virtual IEnumerator Shoot()
     {
+        if (manRenderer != null) { manRenderer.flipX = targetEnemy.transform.position.x < transform.position.x; }
         GameObject projectile = ObjectPooler.GetObject(projectileContainer);
         projectile.transform.position = transform.position + towerData.projectileData.posOffset;
-        if (targetEnemy == null) { return; }
+        animator?.SetTrigger("ShouldShoot");
+        yield return new WaitForSeconds(animTime);
+        if (targetEnemy == null) { yield return null; }
         projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects);
         Debug.Log("Shooted");
     }

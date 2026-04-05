@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class AoEProjectileHit : ProjectileHit
 {
-    protected AoEProjectileData aoeProjectileData;
     protected List<Enemy> enemies = new();
 
     protected void Awake()
     {
-        aoeProjectileData = GetComponent<Projectile>().projectileData as AoEProjectileData;
-        GetComponent<CircleCollider2D>().radius = aoeProjectileData.effectRadius;
+        GetComponent<CircleCollider2D>().radius = GetComponent<Projectile>().projectileData.effectRadius;
     }
 
     public override void OnArrivedTarget()
