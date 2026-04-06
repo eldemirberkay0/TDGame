@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     // Bad and unflexible UI manager but enough for now
     public static UIManager Instance { get; private set; }
 
-    // Many tightly coupled direct references but anyways
+    // Many tightly coupled direct references but anyways, maybe refactor later
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text goldsText;
     [SerializeField] private GameObject levelInfoCanvas;

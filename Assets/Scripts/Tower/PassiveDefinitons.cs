@@ -20,11 +20,6 @@ public class GoldPassive : IntervalPassive
     public float interval;
     public float gold;
 
-    public override Passive Clone()
-    {
-        return (Passive)this.MemberwiseClone();
-    }
-
     protected override void SetTimer()
     {
         timer = new Timer(interval, Use, isLooped: true);
@@ -36,4 +31,6 @@ public class GoldPassive : IntervalPassive
         if (timer == null) { SetTimer(); }
         PlayerStats.SetGold(PlayerStats.Gold + gold);
     }
+
+    public override Passive Clone() => (Passive)this.MemberwiseClone();
 }

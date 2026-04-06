@@ -35,4 +35,6 @@ public class BezierProjectile : ProjectileMovement
         transform.right = new Vector3(newPos.x, newPos.y, 0f) - transform.position;
         transform.position = newPos;
     }
+
+    protected override bool IsArrivedTarget() => (passedTime / t) >= 1;
 }

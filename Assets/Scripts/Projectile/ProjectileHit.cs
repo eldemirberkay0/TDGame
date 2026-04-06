@@ -16,7 +16,8 @@ public class ProjectileHit : MonoBehaviour
     {
         foreach (Effect effect in effectsToApply)
         {
-            effect.Apply(target.gameObject.GetComponent<Enemy>());
+            Effect effectClone = effect.Clone();
+            effectClone.Apply(target.gameObject.GetComponent<Enemy>());
         }
     }
 }

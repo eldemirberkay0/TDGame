@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2783732385843011505}
   - component: {fileID: 6450877573058803193}
   - component: {fileID: 6869082076151753805}
-  - component: {fileID: 8295498721032036421}
+  - component: {fileID: 1915204961336661217}
   m_Layer: 0
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -131,7 +131,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 2
---- !u!114 &8295498721032036421
+--- !u!114 &1915204961336661217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,12 +140,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2709884828299058188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb4bc94c6bb6834faab07e4e4be7faf, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e6eec9183165545bf9279afc40732a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArcherTower
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileTower
   towerData: {fileID: 11400000, guid: 8039b2b9891be8c4a9a3f52b85338f04, type: 2}
   projectileContainer: {fileID: 2528407547153939845}
-  manAnimator: {fileID: 7336145208946096323}
+  animator: {fileID: 7336145208946096323}
   manRenderer: {fileID: 7236313126508406749}
   animTime: 0.5
 --- !u!1 &7300265551816420727

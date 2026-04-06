@@ -18,6 +18,7 @@ MonoBehaviour:
   shootInterval: 1
   effects:
   - rid: 4776619478875111505
+  - rid: 4776619506282791062
   projectileData: {fileID: 11400000, guid: 6b43c944bfd44eb4683ac745fe5c77eb, type: 2}
   references:
     version: 2
@@ -27,3 +28,7 @@ MonoBehaviour:
       data:
         slowPercent: 30
         duration: 3
+    - rid: 4776619506282791062
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 1

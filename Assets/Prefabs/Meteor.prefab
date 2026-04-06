@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6147306294078586823}
   - component: {fileID: 392967514974696168}
   - component: {fileID: 6613414788528074893}
-  - component: {fileID: 5987735141597159194}
+  - component: {fileID: -4934341550432336331}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5693c8a58cdfd45a3498ccde4f21f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BezierProjectile
---- !u!58 &5987735141597159194
+--- !u!58 &-4934341550432336331
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,4 +167,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 2

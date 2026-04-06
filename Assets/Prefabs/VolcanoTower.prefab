@@ -108,6 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTower
   towerData: {fileID: 11400000, guid: 3daf1e93fc993c441b469b821cf795d5, type: 2}
   projectileContainer: {fileID: 532334740445889208}
+  animator: {fileID: 0}
+  manRenderer: {fileID: 0}
+  animTime: 0
 --- !u!58 &6922366977304767512
 CircleCollider2D:
   m_ObjectHideFlags: 0

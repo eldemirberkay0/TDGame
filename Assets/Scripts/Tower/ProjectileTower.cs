@@ -15,7 +15,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Enemy targetEnemy = null;
     protected Timer reloadTimer = null;
-    protected bool canShoot = true;
+    protected bool canShoot = false;
 
     protected void Awake()
     {
@@ -27,13 +27,14 @@ public class ProjectileTower : Tower<ProjectileTowerData>
     {
         ObjectPooler.CreatePool(towerData.projectileData.prefab, 10, projectileContainer);
         if (animator != null) { animator.speed = 1 / animTime / towerData.shootInterval; }
+        reloadTimer.Start();
     }
 
     protected void Update()
     {
         if (canShoot && targetEnemy != null)
         {
-            Shoot();
+            StartCoroutine(Shoot());
             canShoot = false;
             reloadTimer.Restart(towerData.shootInterval);
         }
@@ -45,19 +46,16 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         if (manRenderer != null) { manRenderer.flipX = targetEnemy.transform.position.x < transform.position.x; }
         GameObject projectile = ObjectPooler.GetObject(projectileContainer);
         projectile.transform.position = transform.position + towerData.projectileData.posOffset;
-        animator?.SetTrigger("ShouldShoot");
+        if (animator != null) { animator.SetTrigger("ShouldShoot"); }
         yield return new WaitForSeconds(animTime);
-        if (targetEnemy == null) { yield return null; }
-        projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects);
-        reloadTimer.Restart();
-        // Debug.Log("Shooted");
+        if (targetEnemy != null) { projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects); ; }
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7) // Enemy layer is 7
         {
-            // Debug.Log(collision.gameObject);
+            Debug.Log(collision.gameObject);
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemiesInRange.Add(enemy);
             if (targetEnemy == null) { targetEnemy = enemy; }

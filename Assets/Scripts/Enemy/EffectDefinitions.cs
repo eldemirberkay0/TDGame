@@ -6,6 +6,7 @@ using FlexTimer;
 public abstract class Effect
 {
     public abstract void Apply(Enemy enemy);
+    public abstract Effect Clone();
 }
 
 [System.Serializable]
@@ -25,6 +26,8 @@ public class DamageEffect : Effect
     {
         enemy.Health.TakeDamage(damage);
     }
+
+    public override Effect Clone() => (Effect)this.MemberwiseClone();
 }
 
 [System.Serializable]
@@ -47,7 +50,7 @@ public class SlowEffect : TimerEffect
 
         if (enemy.EffectHandler.CurrentEffects.Count > 0)
         {
-            for (int i = enemy.EffectHandler.CurrentEffects.Count - 1; i > 0; i--)
+            for (int i = enemy.EffectHandler.CurrentEffects.Count - 1; i >= 0; i--)
             {
                 Effect currentEffect = enemy.EffectHandler.CurrentEffects[i];
                 if (currentEffect is SlowEffect currentSlow)
@@ -72,4 +75,6 @@ public class SlowEffect : TimerEffect
         timer.Cancel();
         timer = null;
     }
+
+    public override Effect Clone() => (Effect)this.MemberwiseClone();
 }

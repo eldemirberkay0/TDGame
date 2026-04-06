@@ -12,7 +12,7 @@ public class AoEProjectile : ProjectileHit
 
     public override void OnArrivedTarget()
     {
-        for (int i = enemies.Count - 1; i > 0; i--)
+        for (int i = enemies.Count - 1; i >= 0; i--)
         {
             foreach (Effect effect in effectsToApply)
             {

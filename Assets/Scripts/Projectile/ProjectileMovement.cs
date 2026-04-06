@@ -24,7 +24,7 @@ public class ProjectileMovement : MonoBehaviour
         }
         if (isGuided) { targetPos = target.position; }
         GoToTarget();
-        if (Vector2.Distance(transform.position, targetPos) <= MIN_REACH_DISTANCE)
+        if (IsArrivedTarget())
         {
             projectile.HitController.OnArrivedTarget();
             DestroyProjectile();
@@ -49,4 +49,6 @@ public class ProjectileMovement : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    protected virtual bool IsArrivedTarget() => Vector2.Distance(transform.position, targetPos) <= MIN_REACH_DISTANCE;
 }
