@@ -50,14 +50,14 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         if (targetEnemy == null) { yield return null; }
         projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects);
         reloadTimer.Restart();
-        Debug.Log("Shooted");
+        // Debug.Log("Shooted");
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7) // Enemy layer is 7
         {
-            Debug.Log(collision.gameObject);
+            // Debug.Log(collision.gameObject);
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemiesInRange.Add(enemy);
             if (targetEnemy == null) { targetEnemy = enemy; }

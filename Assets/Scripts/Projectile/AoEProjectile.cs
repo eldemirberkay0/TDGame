@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AoEProjectileHit : ProjectileHit
+public class AoEProjectile : ProjectileHit
 {
     protected List<Enemy> enemies = new();
 

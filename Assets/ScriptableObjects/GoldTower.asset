@@ -15,11 +15,11 @@ MonoBehaviour:
   towerPrefab: {fileID: 5928065388787271074, guid: 0181d981dc0c58a42ab2dadc77c4f940, type: 3}
   price: 0
   passives:
-  - rid: 4776619467689427025
+  - rid: 4776619506282790990
   references:
     version: 2
     RefIds:
-    - rid: 4776619467689427025
+    - rid: 4776619506282790990
       type: {class: GoldPassive, ns: , asm: Assembly-CSharp}
       data:
         interval: 1

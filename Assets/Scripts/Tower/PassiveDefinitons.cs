@@ -5,13 +5,13 @@ using UnityEngine;
 public abstract class Passive
 {
     public abstract void Use();
+    public abstract Passive Clone();
 }
 
-[System.Serializable]
 public abstract class IntervalPassive : Passive
 {
-    protected Timer timer = null;
-    public abstract void SetTimer();
+    protected Timer timer;
+    protected abstract void SetTimer();
 }
 
 [System.Serializable]
@@ -20,7 +20,12 @@ public class GoldPassive : IntervalPassive
     public float interval;
     public float gold;
 
-    public override void SetTimer()
+    public override Passive Clone()
+    {
+        return (Passive)this.MemberwiseClone();
+    }
+
+    protected override void SetTimer()
     {
         timer = new Timer(interval, Use, isLooped: true);
         timer.Start();

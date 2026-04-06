@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
 
         if (Vector2.Distance(transform.position, waypoints[currentPointIndex].position) < 0.1f)
         {
-            Debug.Log("Next waypoint");
+            // Debug.Log("Next waypoint");
             currentPointIndex++;
             if (currentPointIndex >= waypoints.Length) { Arrive(); }
             if (currentPointIndex < waypoints.Length) { SetFlip(); }
