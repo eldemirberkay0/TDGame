@@ -11,9 +11,10 @@ public class Level : ScriptableObject
 [System.Serializable]
 public struct Wave
 {
-    public float time;
+    public float durationToStart;
     public float maxTimeReward;
     public EnemyGroup[] enemyGroups;
+    public float durationToNext;
 }
 
 [System.Serializable]
