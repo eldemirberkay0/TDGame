@@ -16,4 +16,4 @@ MonoBehaviour:
   speed: 1
   isGuided: 0
   posOffset: {x: 0, y: 0.29, z: 0}
-  effectRadius: 2
+  effectRadius: 1

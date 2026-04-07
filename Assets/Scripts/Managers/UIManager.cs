@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text goldsText;
     [SerializeField] private GameObject levelInfoCanvas;
     [SerializeField] private GameObject towerSelectionMenu;
+    [SerializeField] private GameObject towerMenuCloseCanvas;
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject waveTimerCanvas;
     [SerializeField] private Image waveTime;
@@ -41,6 +42,7 @@ public class UIManager : MonoBehaviour
     {
         towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
         towerSelectionMenu.SetActive(isActive);
+        towerMenuCloseCanvas.SetActive(isActive);
     }
 
     private void ShowLevelUI()
