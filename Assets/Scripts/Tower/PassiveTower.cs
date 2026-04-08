@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using FlexTimer;
 
-public class PassiveTower : Tower<PassiveTowerData>
+public class PassiveTower : Tower
 {
-    private void OnEnable()
+    protected new PassiveTowerData towerData => base.towerData as PassiveTowerData;
+
+    protected void OnEnable()
     {
         foreach (Passive passive in towerData.passives)
         {
@@ -12,5 +14,10 @@ public class PassiveTower : Tower<PassiveTowerData>
             passiveClone.Use();
             Debug.Log(this + " used!"); passiveClone.Use();
         }
+    }
+
+    public override void SetTowerInfo(bool isActive)
+    {
+        Debug.Log("Not yet...");
     }
 }

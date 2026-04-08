@@ -1,21 +1,23 @@
+using FlexTimer;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    // Bad and unflexible UI manager but enough for now
+    // Refactor later
     public static UIManager Instance { get; private set; }
 
-    // Many tightly coupled direct references but anyways, maybe refactor later
+    // Many tightly coupled direct references, maybe refactor later
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private TMP_Text goldsText;
     [SerializeField] private GameObject levelInfoCanvas;
     [SerializeField] private GameObject towerSelectionMenu;
-    [SerializeField] private GameObject towerMenuCloseCanvas;
-    [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject waveTimerCanvas;
     [SerializeField] private Image waveTime;
+    [SerializeField] private GameObject timeRewardCanvas;
+    [SerializeField] private TMP_Text timeRewardText;
+    [SerializeField] private GameObject mainMenuCanvas;
 
     private void Awake()
     {
@@ -42,12 +44,19 @@ public class UIManager : MonoBehaviour
     {
         towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
         towerSelectionMenu.SetActive(isActive);
-        towerMenuCloseCanvas.SetActive(isActive);
+    }
+
+    public void AnimateTimeReward(int goldReward)
+    {
+        timeRewardText.text = "+  " + goldReward.ToString();
+        timeRewardCanvas.SetActive(true);
+        timeRewardCanvas.GetComponent<Animator>().SetTrigger("ShouldReward");
+        TimerManager.RegisterEvent(2f, () => timeRewardCanvas.SetActive(false));
     }
 
     private void ShowLevelUI()
     {
-        startButton.SetActive(false);
+        mainMenuCanvas.SetActive(false);
         levelInfoCanvas.SetActive(true);
         UpdateCoin();
         UpdateLive();

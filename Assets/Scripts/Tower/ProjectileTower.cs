@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using FlexTimer;
 using UnityEngine;
 
-public class ProjectileTower : Tower<ProjectileTowerData>
+public class ProjectileTower : Tower
 {
+    protected new ProjectileTowerData towerData => base.towerData as ProjectileTowerData;
+
     [SerializeField] protected Transform projectileContainer;
+    [SerializeField] protected GameObject rangeIndicator;
 
     [Header("Optionals")]
     [SerializeField] protected Animator animator;
@@ -72,6 +76,11 @@ public class ProjectileTower : Tower<ProjectileTowerData>
         }
     }
 
+    public override void SetTowerInfo(bool isActive)
+    {
+        rangeIndicator.SetActive(isActive);
+    }
+
     protected void OnValidate()
     {
         if (towerData == null) return;
@@ -81,7 +90,7 @@ public class ProjectileTower : Tower<ProjectileTowerData>
 
     protected void OnDestroy()
     {
-        reloadTimer?.Cancel();
+        if (reloadTimer != null) { reloadTimer.Cancel(); }
         reloadTimer = null;
     }
 }

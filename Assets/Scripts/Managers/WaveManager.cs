@@ -43,9 +43,10 @@ public class WaveManager : MonoBehaviour
         UIManager.Instance.SetWaveTimer(false);
         waveTimer.Pause();
         float goldReward = waveData.maxTimeReward * waveTimer.TimeToTickNormalized;
-        if (goldReward > 0)
+        PlayerStats.SetGold(PlayerStats.Gold + goldReward);
+        if ((int)goldReward > 0)
         {
-            PlayerStats.SetGold(PlayerStats.Gold + goldReward);
+            UIManager.Instance.AnimateTimeReward((int)goldReward);
         }
         StartCoroutine(SpawnWave(LevelManager.Instance.LevelData, CurrentWave));
     }

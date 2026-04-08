@@ -15,8 +15,8 @@ MonoBehaviour:
   initialGold: 120
   health: 10
   waves:
-  - durationToStart: 3
-    maxTimeReward: 0
+  - durationToStart: 5
+    maxTimeReward: 50
     enemyGroups:
     - delay: 0
       enemy: {fileID: 7128418907363821497, guid: b7ad6b54efa178049849d0fe873009a2, type: 3}
