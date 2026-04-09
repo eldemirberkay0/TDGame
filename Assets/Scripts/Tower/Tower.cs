@@ -12,6 +12,12 @@ public abstract class Tower : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (Node.CurrentNode != null)
+        {
+            UIManager.Instance.SetTowerMenu(false);
+            Node.CurrentNode = null;
+        }
+
         if (CurrentTower != null) { CurrentTower.SetTowerInfo(false); }
         CurrentTower = this;
         SetTowerInfo(true);

@@ -25,6 +25,7 @@ public class ProjectileTower : Tower
     {
         GetComponent<CircleCollider2D>().radius = towerData.range;
         reloadTimer = new Timer(towerData.shootInterval, () => canShoot = true);
+        rangeIndicator.transform.localScale = new Vector3(towerData.range * 2, towerData.range * 2, 1f);
     }
 
     protected virtual void Start()

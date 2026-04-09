@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Transform[] waypoints;
-
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Enemy enemy;
@@ -30,16 +28,16 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        Vector2 dir = (waypoints[currentPointIndex].position - transform.position).normalized;
+        Vector2 dir = (LevelManager.Instance.LevelData.waypoints[currentPointIndex].position - transform.position).normalized;
         Vector3 velocity = new Vector3(dir.x, dir.y, 0) * Time.deltaTime * currentSpeed;
         transform.position += velocity;
 
-        if (Vector2.Distance(transform.position, waypoints[currentPointIndex].position) < 0.1f)
+        if (Vector2.Distance(transform.position, LevelManager.Instance.LevelData.waypoints[currentPointIndex].position) < 0.1f)
         {
             // Debug.Log("Next waypoint");
             currentPointIndex++;
-            if (currentPointIndex >= waypoints.Length) { Arrive(); }
-            if (currentPointIndex < waypoints.Length) { SetFlip(); }
+            if (currentPointIndex >= LevelManager.Instance.LevelData.waypoints.Length) { Arrive(); }
+            if (currentPointIndex < LevelManager.Instance.LevelData.waypoints.Length) { SetFlip(); }
         }
     }
 
@@ -62,8 +60,8 @@ public class EnemyController : MonoBehaviour
 
     private void SetFlip()
     {
-        bool shouldTurnLeft = transform.position.x > waypoints[currentPointIndex].transform.position.x && !spriteRenderer.flipX;
-        bool shouldTurnRight = transform.position.x < waypoints[currentPointIndex].transform.position.x && spriteRenderer.flipX;
+        bool shouldTurnLeft = transform.position.x > LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && !spriteRenderer.flipX;
+        bool shouldTurnRight = transform.position.x < LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && spriteRenderer.flipX;
         if (shouldTurnLeft || shouldTurnRight) { spriteRenderer.flipX = !spriteRenderer.flipX; }
     }
 }

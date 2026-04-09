@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldTower
   m_EditorClassIdentifier: Assembly-CSharp::PassiveTowerData
   towerPrefab: {fileID: 5928065388787271074, guid: 0181d981dc0c58a42ab2dadc77c4f940, type: 3}
-  price: 0
+  price: 150
   passives:
   - rid: 4776619506282790990
   references:
@@ -23,4 +23,4 @@ MonoBehaviour:
       type: {class: GoldPassive, ns: , asm: Assembly-CSharp}
       data:
         interval: 1
-        gold: 1
+        gold: 2

@@ -6,6 +6,7 @@ public class Level : ScriptableObject
     public int initialGold;
     public int health;
     public Wave[] waves;
+    public Transform[] waypoints;
 }
 
 [System.Serializable]

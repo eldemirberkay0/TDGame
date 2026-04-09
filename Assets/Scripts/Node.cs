@@ -3,14 +3,18 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour, IPointerClickHandler
 {
-    private bool isEmpty = true;
     public static Node CurrentNode = null;
+    private bool isEmpty = true;
 
     public void BuildTower(TowerData tower)
     {
         Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation);
-        UIManager.Instance.SetTowerMenu(false);
         PlayerStats.SetGold(PlayerStats.Gold - tower.price);
+        UIManager.Instance.SetTowerMenu(false);
+        CurrentNode.isEmpty = false;
+        CurrentNode.gameObject.SetActive(false);
+        CurrentNode = null;
+        Debug.Log(isEmpty);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -18,6 +22,11 @@ public class Node : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             Debug.Log("clicked");
+            if (Tower.CurrentTower != null)
+            {
+                Tower.CurrentTower.SetTowerInfo(false);
+                Tower.CurrentTower = null;
+            }
             if (isEmpty)
             {
                 CurrentNode = this;

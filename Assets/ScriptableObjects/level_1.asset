@@ -12,22 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64ff0509f4a5664b81fdf5df9caa210, type: 3}
   m_Name: level_1
   m_EditorClassIdentifier: Assembly-CSharp::Level
-  initialGold: 120
+  initialGold: 250
   health: 10
   waves:
-  - durationToStart: 5
-    maxTimeReward: 50
+  - durationToStart: 60
+    maxTimeReward: 0
     enemyGroups:
     - delay: 0
       enemy: {fileID: 7128418907363821497, guid: b7ad6b54efa178049849d0fe873009a2, type: 3}
       count: 10
       interval: 1.5
     durationToNext: 8
-  - durationToStart: 5
+  - durationToStart: 10
     maxTimeReward: 200
     enemyGroups:
     - delay: 0
       enemy: {fileID: 7128418907363821497, guid: b7ad6b54efa178049849d0fe873009a2, type: 3}
       count: 5
-      interval: 1
+      interval: 2
+    - delay: 3
+      enemy: {fileID: 4631636517038034831, guid: 8abdb6e2857ef9d4588081ec28d016eb, type: 3}
+      count: 5
+      interval: 2
     durationToNext: 0
+  waypoints:
+  - {fileID: 7366740330824978274, guid: 1fd8ca1489cce994e98c837530c5f1cc, type: 3}
+  - {fileID: 3881527946567084423, guid: 7a069c7e4beb791469d9a3ff1beca209, type: 3}
+  - {fileID: 6232713835787342892, guid: 0920a36854c1df840bb661cdb14be397, type: 3}
+  - {fileID: 7198349699443326706, guid: 4b02cefba574c934295dab4912529585, type: 3}
+  - {fileID: 2268578631423079335, guid: 90f5f9695b94e3c469fdd2a654b1bbc6, type: 3}
+  - {fileID: 3879850293231708690, guid: 0570befb594a8aa49ac273e25d083a17, type: 3}
+  - {fileID: 4794016742494552142, guid: 0ffc2f47da4bf6a49be8b1bb1f64d043, type: 3}
+  - {fileID: 2885651963828167099, guid: a2de7b1e7a2c4df4bb32a08cbf1db233, type: 3}
+  - {fileID: 303681035488798955, guid: df5025b2016963543b31c765b8c4b312, type: 3}

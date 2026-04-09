@@ -57,7 +57,8 @@ public class WaveManager : MonoBehaviour
         {
             for (int i = 0; i < group.count; i++)
             {
-                Instantiate(group.enemy, transform.position, transform.rotation).SetActive(true);
+                Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + Random.Range(-0.05f, 0.4f), transform.position.z);
+                Instantiate(group.enemy, spawnPos, transform.rotation).SetActive(true);
                 yield return new WaitForSeconds(group.interval);
             }
             yield return new WaitForSeconds(group.delay);

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: wolf
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   health: 10
-  speed: 1
-  reward: 6
+  speed: 0.65
+  reward: 15
