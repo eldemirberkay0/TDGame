@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Passive
 {
     public abstract void Use();
-    public abstract Passive Clone();
+    public Passive Clone() => (Passive)this.MemberwiseClone();
 }
 
 public abstract class IntervalPassive : Passive
@@ -31,6 +31,4 @@ public class GoldPassive : IntervalPassive
         if (timer == null) { SetTimer(); }
         PlayerStats.SetGold(PlayerStats.Gold + gold);
     }
-
-    public override Passive Clone() => (Passive)this.MemberwiseClone();
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64ff0509f4a5664b81fdf5df9caa210, type: 3}
   m_Name: level_1
   m_EditorClassIdentifier: Assembly-CSharp::Level
-  initialGold: 250
+  initialGold: 25000
   health: 10
   waves:
   - durationToStart: 60

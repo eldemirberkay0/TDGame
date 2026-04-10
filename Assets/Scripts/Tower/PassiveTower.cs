@@ -4,7 +4,12 @@ using FlexTimer;
 
 public class PassiveTower : Tower
 {
-    protected new PassiveTowerData towerData => base.towerData as PassiveTowerData;
+    protected PassiveTowerData towerData;
+
+    protected void Awake()
+    {
+        towerData = TowerDatas[CurrentLevel - 1] as PassiveTowerData;
+    }
 
     protected void OnEnable()
     {
@@ -19,5 +24,11 @@ public class PassiveTower : Tower
     public override void SetTowerInfo(bool isActive)
     {
         Debug.Log("Not yet...");
+    }
+
+    public override void Upgrade()
+    {
+        CurrentLevel++;
+        towerData = TowerDatas[CurrentLevel - 1] as PassiveTowerData;
     }
 }

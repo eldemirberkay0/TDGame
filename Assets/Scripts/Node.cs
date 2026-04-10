@@ -4,17 +4,17 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour, IPointerClickHandler
 {
     public static Node CurrentNode = null;
-    private bool isEmpty = true;
+    [HideInInspector] public bool isEmpty;
 
     public void BuildTower(TowerData tower)
     {
-        Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation);
+        if (PlayerStats.Gold < tower.price) { return; }
+        Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation).GetComponent<Tower>().attachedNode = CurrentNode;
         PlayerStats.SetGold(PlayerStats.Gold - tower.price);
         UIManager.Instance.SetTowerMenu(false);
         CurrentNode.isEmpty = false;
         CurrentNode.gameObject.SetActive(false);
         CurrentNode = null;
-        Debug.Log(isEmpty);
     }
 
     public void OnPointerClick(PointerEventData eventData)

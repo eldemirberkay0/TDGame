@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class ProjectileTower : Tower
 {
-    protected new ProjectileTowerData towerData => base.towerData as ProjectileTowerData;
-
     [SerializeField] protected Transform projectileContainer;
     [SerializeField] protected GameObject rangeIndicator;
 
@@ -16,6 +14,7 @@ public class ProjectileTower : Tower
     [SerializeField] protected SpriteRenderer manRenderer;
     [SerializeField] private float animTime = 0.5f;
 
+    protected ProjectileTowerData towerData;
     protected List<Enemy> enemiesInRange = new List<Enemy>();
     protected Enemy targetEnemy = null;
     protected Timer reloadTimer = null;
@@ -23,6 +22,7 @@ public class ProjectileTower : Tower
 
     protected void Awake()
     {
+        towerData = TowerDatas[CurrentLevel - 1] as ProjectileTowerData;
         GetComponent<CircleCollider2D>().radius = towerData.range;
         reloadTimer = new Timer(towerData.shootInterval, () => canShoot = true);
         rangeIndicator.transform.localScale = new Vector3(towerData.range * 2, towerData.range * 2, 1f);
@@ -80,6 +80,13 @@ public class ProjectileTower : Tower
     public override void SetTowerInfo(bool isActive)
     {
         rangeIndicator.SetActive(isActive);
+        UIManager.Instance.SetTowerControlPanel(isActive);
+    }
+
+    public override void Upgrade()
+    {
+        CurrentLevel++;
+        towerData = TowerDatas[CurrentLevel - 1] as ProjectileTowerData;
     }
 
     protected void OnValidate()

@@ -5,8 +5,11 @@ using UnityEngine.EventSystems;
 public abstract class Tower : MonoBehaviour, IPointerDownHandler
 {
     public static Tower CurrentTower;
+    public int CurrentLevel { get; protected set; } = 1;
 
-    [SerializeField] protected TowerData towerData;
+    [field: SerializeField] public TowerData[] TowerDatas { get; protected set; }
+
+    [HideInInspector] public Node attachedNode = null;
 
     public abstract void SetTowerInfo(bool isActive);
 
@@ -20,6 +23,8 @@ public abstract class Tower : MonoBehaviour, IPointerDownHandler
 
         if (CurrentTower != null) { CurrentTower.SetTowerInfo(false); }
         CurrentTower = this;
-        SetTowerInfo(true);
+        CurrentTower.SetTowerInfo(true);
     }
+
+    public abstract void Upgrade();
 }

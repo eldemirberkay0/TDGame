@@ -1,5 +1,6 @@
 using FlexTimer;
 using TMPro;
+using UnityEditor.U2D.Tooling.Analyzer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject timeRewardCanvas;
     [SerializeField] private TMP_Text timeRewardText;
     [SerializeField] private GameObject mainMenuCanvas;
+    [SerializeField] private GameObject towerControlCanvas;
+    [SerializeField] private Button upgradeButton;
+    [SerializeField] private TMP_Text upgradePriceText;
+    [SerializeField] private TMP_Text destroyRefundText;
 
     private void Awake()
     {
@@ -34,12 +39,6 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted += ShowLevelUI;
     }
 
-    public void SetWaveTimer(bool isActive)
-    {
-        waveTimerCanvas.SetActive(isActive);
-        // waveTimer.transform.position = 
-    }
-
     public void SetTowerMenu(bool isActive)
     {
         towerSelectionMenu.transform.position = Node.CurrentNode.transform.position;
@@ -52,6 +51,15 @@ public class UIManager : MonoBehaviour
         timeRewardCanvas.SetActive(true);
         timeRewardCanvas.GetComponent<Animator>().SetTrigger("ShouldReward");
         TimerManager.RegisterEvent(2f, () => timeRewardCanvas.SetActive(false));
+    }
+
+    public void SetTowerControlPanel(bool isActive)
+    {
+        if (Tower.CurrentTower.CurrentLevel < 3) { upgradePriceText.text = "-" + Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel].price.ToString(); }
+        else { upgradeButton.gameObject.SetActive(false); }
+        destroyRefundText.text = "+" + Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel - 1].refund.ToString();
+        towerControlCanvas.transform.position = new Vector3(Tower.CurrentTower.transform.position.x, Tower.CurrentTower.transform.position.y - 0.2f, 0);
+        towerControlCanvas.SetActive(isActive);
     }
 
     private void ShowLevelUI()
@@ -67,8 +75,8 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted -= ShowLevelUI;
     }
 
-    public void SetWaveTimeFill(float amount) { waveTime.fillAmount = amount; }
-
+    public void SetWaveTimer(bool isActive) => waveTimerCanvas.SetActive(isActive);
+    public void SetWaveTimeFill(float amount) => waveTime.fillAmount = amount;
     public void UpdateCoin() => goldsText.text = ((int)PlayerStats.Gold).ToString();
     public void UpdateLive() => livesText.text = PlayerStats.Lives.ToString();
 }

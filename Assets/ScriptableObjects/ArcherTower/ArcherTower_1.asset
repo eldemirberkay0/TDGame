@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
+  m_Name: ArcherTower_1
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
+  towerPrefab: {fileID: 1984084865093507816, guid: bf0a8d0e8e09d52488853aed32d15fdd, type: 3}
+  price: 75
+  refund: 5
+  range: 1.5
+  shootInterval: 2
+  effects:
+  - rid: 4776619478875111504
+  projectileData: {fileID: 11400000, guid: b89777d8c01b5ba4ba76b177b7c92062, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4776619478875111504
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 5

@@ -35,6 +35,24 @@ public class LevelManager : MonoBehaviour
         OnLevelStarted?.Invoke();
     }
 
+    public void DestroyTower()
+    {
+        PlayerStats.SetGold(PlayerStats.Gold + Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel - 1].refund);
+        Tower.CurrentTower.attachedNode.isEmpty = true;
+        Tower.CurrentTower.SetTowerInfo(false);
+        Tower.CurrentTower.attachedNode.gameObject.SetActive(true);
+        Destroy(Tower.CurrentTower.gameObject);
+        Tower.CurrentTower = null;
+    }
+
+    public void UpgradeTower()
+    {
+        if (PlayerStats.Gold < Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel].price) { return; }
+        Tower.CurrentTower.Upgrade();
+        PlayerStats.SetGold(PlayerStats.Gold - Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel - 1].price);
+        Tower.CurrentTower.SetTowerInfo(true);
+    }
+
     private void OnDisable()
     {
         GameManager.OnGameStarted -= SetLevel;

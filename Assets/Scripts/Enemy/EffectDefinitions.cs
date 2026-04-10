@@ -6,7 +6,7 @@ using FlexTimer;
 public abstract class Effect
 {
     public abstract void Apply(Enemy enemy);
-    public abstract Effect Clone();
+    public Effect Clone() => (Effect)this.MemberwiseClone();
 }
 
 [System.Serializable]
@@ -26,8 +26,6 @@ public class DamageEffect : Effect
     {
         enemy.Health.TakeDamage(damage);
     }
-
-    public override Effect Clone() => (Effect)this.MemberwiseClone();
 }
 
 [System.Serializable]
@@ -76,6 +74,4 @@ public class SlowEffect : TimerEffect
         if (targetEnemy == null) { return; }
         if (targetEnemy.EffectHandler.CurrentEffects.Contains(this) && targetEnemy.isActiveAndEnabled) { targetEnemy.Controller.ChangeSpeedPercent(slowPercent); }
     }
-
-    public override Effect Clone() => (Effect)this.MemberwiseClone();
 }
