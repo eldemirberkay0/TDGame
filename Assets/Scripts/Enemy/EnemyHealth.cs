@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Die()
     {
         PlayerStats.SetGold(PlayerStats.Gold + enemy.stats.reward);
+        WaveManager.Instance.UpdateEnemyCounter();
         Destroy(gameObject);
-        // throw new System.NotImplementedException();
     }
 }

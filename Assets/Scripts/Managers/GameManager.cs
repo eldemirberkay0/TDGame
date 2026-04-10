@@ -1,11 +1,18 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     public static Action OnGameStarted = null;
+
+    private void OnEnable()
+    {
+        LevelManager.OnLevelVictory += Victory;
+        PlayerStats.OnGameOver += GameOver;
+    }
 
     private void Awake()
     {
@@ -21,5 +28,15 @@ public class GameManager : MonoBehaviour
     {
         PlayerStats.SetCurrentLevel(1);
         OnGameStarted?.Invoke();
+    }
+
+    public void GameOver() => SceneManager.LoadScene("GameOverScene");
+    public void Restart() => SceneManager.LoadScene("GameScene");
+    public void Victory() => SceneManager.LoadScene("LevelVictoryScene");
+
+    private void OnDisable()
+    {
+        LevelManager.OnLevelVictory -= Victory;
+        PlayerStats.OnGameOver -= GameOver;
     }
 }

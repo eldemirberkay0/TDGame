@@ -87,6 +87,10 @@ public class ProjectileTower : Tower
     {
         CurrentLevel++;
         towerData = TowerDatas[CurrentLevel - 1] as ProjectileTowerData;
+        GetComponent<CircleCollider2D>().radius = towerData.range;
+        rangeIndicator.transform.localScale = new Vector3(towerData.range * 2, towerData.range * 2, 1f);
+        reloadTimer.Restart(towerData.shootInterval);
+        if (animator != null) { animator.speed = 1 / animTime / towerData.shootInterval; }
     }
 
     protected void OnValidate()

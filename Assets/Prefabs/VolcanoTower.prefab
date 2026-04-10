@@ -217,7 +217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e6eec9183165545bf9279afc40732a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTower
-  towerData: {fileID: 11400000, guid: 3daf1e93fc993c441b469b821cf795d5, type: 2}
+  <TowerDatas>k__BackingField:
+  - {fileID: 11400000, guid: 3daf1e93fc993c441b469b821cf795d5, type: 2}
+  - {fileID: 11400000, guid: cc490170719ecd640b6f7938c6a21aef, type: 2}
+  - {fileID: 11400000, guid: 52f4fff733ef1034ba7bac866ca2736a, type: 2}
+  attachedNode: {fileID: 0}
   projectileContainer: {fileID: 935704221866201345}
   rangeIndicator: {fileID: 6924827006279014048}
   animator: {fileID: 0}

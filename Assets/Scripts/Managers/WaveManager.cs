@@ -10,6 +10,8 @@ public class WaveManager : MonoBehaviour
     private Timer waveTimer;
     private Wave waveData;
 
+    private int enemyCount;
+
     private void Awake()
     {
         if (Instance != null)
@@ -40,6 +42,7 @@ public class WaveManager : MonoBehaviour
     public void StartWave()
     {
         CurrentWave++;
+        UIManager.Instance.UpdateWave();
         UIManager.Instance.SetWaveTimer(false);
         waveTimer.Pause();
         float goldReward = waveData.maxTimeReward * waveTimer.TimeToTickNormalized;
@@ -59,12 +62,19 @@ public class WaveManager : MonoBehaviour
             {
                 Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + Random.Range(-0.05f, 0.4f), transform.position.z);
                 Instantiate(group.enemy, spawnPos, transform.rotation).SetActive(true);
+                enemyCount++;
                 yield return new WaitForSeconds(group.interval);
             }
             yield return new WaitForSeconds(group.delay);
         }
         yield return new WaitForSeconds(waveData.durationToNext);
         if (CurrentWave < LevelManager.Instance.LevelData.waves.Length) { PrepareWave(); }
+    }
+
+    public void UpdateEnemyCounter()
+    {
+        enemyCount--;
+        if (enemyCount == 0 && CurrentWave == LevelManager.Instance.LevelData.waves.Length) { LevelManager.OnLevelVictory?.Invoke(); }
     }
 
     private void OnDisable()

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
-  m_Name: ArcherTower_3
+  m_Name: VolcanoTower_2
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerPrefab: {fileID: 1984084865093507816, guid: bf0a8d0e8e09d52488853aed32d15fdd, type: 3}
-  price: 150
+  towerPrefab: {fileID: 6652138772221062420, guid: 75492a2e72c1432478e07c298bf4d7c1, type: 3}
+  price: 125
   range: 1.5
-  shootInterval: 1.6
+  shootInterval: 2.8
   effects:
-  - rid: 4776619478875111504
-  projectileData: {fileID: 11400000, guid: b89777d8c01b5ba4ba76b177b7c92062, type: 2}
+  - rid: 4776619478875111506
+  projectileData: {fileID: 11400000, guid: 2ead73d21a17e03458a94fc2c311bf48, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 4776619478875111504
+    - rid: 4776619478875111506
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 5
+        damage: 3.75

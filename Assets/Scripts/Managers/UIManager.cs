@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button upgradeButton;
     [SerializeField] private TMP_Text upgradePriceText;
     [SerializeField] private TMP_Text destroyRefundText;
+    [SerializeField] private TMP_Text waveText;
+    [SerializeField] private GameObject nodes;
 
     private void Awake()
     {
@@ -34,9 +36,16 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        nodes.SetActive(false);
+        levelInfoCanvas.SetActive(false);
+        mainMenuCanvas.SetActive(true);
+    }
+
     private void OnEnable()
     {
-        GameManager.OnGameStarted += ShowLevelUI;
+        LevelManager.OnLevelStarted += ShowLevelUI;
     }
 
     public void SetTowerMenu(bool isActive)
@@ -55,9 +64,13 @@ public class UIManager : MonoBehaviour
 
     public void SetTowerControlPanel(bool isActive)
     {
-        if (Tower.CurrentTower.CurrentLevel < 3) { upgradePriceText.text = "-" + Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel].price.ToString(); }
+        if (Tower.CurrentTower.CurrentLevel < 3)
+        {
+            upgradePriceText.text = "-" + Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel].price.ToString();
+            upgradeButton.gameObject.SetActive(true);
+        }
         else { upgradeButton.gameObject.SetActive(false); }
-        destroyRefundText.text = "+" + Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel - 1].refund.ToString();
+        destroyRefundText.text = "+" + ((int)(Tower.CurrentTower.TowerDatas[Tower.CurrentTower.CurrentLevel - 1].price * 0.3)).ToString();
         towerControlCanvas.transform.position = new Vector3(Tower.CurrentTower.transform.position.x, Tower.CurrentTower.transform.position.y - 0.2f, 0);
         towerControlCanvas.SetActive(isActive);
     }
@@ -68,15 +81,17 @@ public class UIManager : MonoBehaviour
         levelInfoCanvas.SetActive(true);
         UpdateCoin();
         UpdateLive();
+        nodes.SetActive(true);
     }
 
     private void OnDisable()
     {
-        GameManager.OnGameStarted -= ShowLevelUI;
+        LevelManager.OnLevelStarted -= ShowLevelUI;
     }
 
     public void SetWaveTimer(bool isActive) => waveTimerCanvas.SetActive(isActive);
     public void SetWaveTimeFill(float amount) => waveTime.fillAmount = amount;
     public void UpdateCoin() => goldsText.text = ((int)PlayerStats.Gold).ToString();
     public void UpdateLive() => livesText.text = PlayerStats.Lives.ToString();
+    public void UpdateWave() => waveText.text = "Wave: " + WaveManager.Instance.CurrentWave.ToString() + "/" + LevelManager.Instance.LevelData.waves.Length.ToString();
 }

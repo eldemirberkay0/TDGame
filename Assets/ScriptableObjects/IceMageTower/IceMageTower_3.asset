@@ -10,19 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
-  m_Name: ArcherTower_3
+  m_Name: IceMageTower_3
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerPrefab: {fileID: 1984084865093507816, guid: bf0a8d0e8e09d52488853aed32d15fdd, type: 3}
-  price: 150
-  range: 1.5
-  shootInterval: 1.6
+  towerPrefab: {fileID: 7933004785015783433, guid: c455bc0fd6001524db6c379da9495e2a, type: 3}
+  price: 195
+  range: 1.4
+  shootInterval: 1.3
   effects:
-  - rid: 4776619478875111504
-  projectileData: {fileID: 11400000, guid: b89777d8c01b5ba4ba76b177b7c92062, type: 2}
+  - rid: 4776619478875111505
+  - rid: 4776619506282791062
+  projectileData: {fileID: 11400000, guid: 6b43c944bfd44eb4683ac745fe5c77eb, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 4776619478875111504
+    - rid: 4776619478875111505
+      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+      data:
+        slowPercent: 70
+        duration: 3
+    - rid: 4776619506282791062
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 5
+        damage: 4

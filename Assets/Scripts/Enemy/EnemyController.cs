@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
     private void Arrive()
     {
         PlayerStats.SetLive(PlayerStats.Lives - 1);
+        WaveManager.Instance.UpdateEnemyCounter();
         Destroy(gameObject);
     }
 

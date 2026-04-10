@@ -13,7 +13,7 @@ public abstract class Effect
 public abstract class TimerEffect : Effect
 {
     protected abstract void OnEffectFinished();
-    protected Timer timer;
+    protected Timer timer = null;
 }
 
 [System.Serializable]
@@ -35,17 +35,10 @@ public class SlowEffect : TimerEffect
     [SerializeField] protected float slowPercent;
     [SerializeField] protected float duration;
 
-    protected Enemy targetEnemy;
+    protected Enemy targetEnemy = null;
 
     public override void Apply(Enemy enemy)
     {
-        if (timer != null)
-        {
-            timer.Cancel();
-            timer = null;
-        }
-        targetEnemy = null;
-
         if (enemy.EffectHandler.CurrentEffects.Count > 0)
         {
             for (int i = enemy.EffectHandler.CurrentEffects.Count - 1; i >= 0; i--)
@@ -54,6 +47,11 @@ public class SlowEffect : TimerEffect
                 if (currentEffect is SlowEffect currentSlow)
                 {
                     if (currentSlow.slowPercent > this.slowPercent) { return; }
+                    else if (currentSlow.slowPercent == this.slowPercent)
+                    {
+                        currentSlow.timer.Restart();
+                        return;
+                    }
                     currentSlow.OnEffectFinished();
                     enemy.EffectHandler.RemoveEffect(currentSlow);
                 }
@@ -72,6 +70,10 @@ public class SlowEffect : TimerEffect
         timer.Cancel();
         timer = null;
         if (targetEnemy == null) { return; }
-        if (targetEnemy.EffectHandler.CurrentEffects.Contains(this) && targetEnemy.isActiveAndEnabled) { targetEnemy.Controller.ChangeSpeedPercent(slowPercent); }
+        if (targetEnemy.EffectHandler.CurrentEffects.Contains(this))
+        {
+            targetEnemy.EffectHandler.RemoveEffect(this);
+            if (targetEnemy.isActiveAndEnabled) { targetEnemy.Controller.ChangeSpeedPercent(slowPercent); }
+        }
     }
 }

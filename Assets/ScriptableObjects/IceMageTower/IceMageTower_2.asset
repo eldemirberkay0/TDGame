@@ -10,19 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dafc9931efc0c614783b5d3d98e78f97, type: 3}
-  m_Name: VolcanoTower
+  m_Name: IceMageTower_2
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
-  towerPrefab: {fileID: 6652138772221062420, guid: 75492a2e72c1432478e07c298bf4d7c1, type: 3}
-  price: 125
-  range: 2
-  shootInterval: 3
+  towerPrefab: {fileID: 7933004785015783433, guid: c455bc0fd6001524db6c379da9495e2a, type: 3}
+  price: 110
+  range: 1.2
+  shootInterval: 1.4
   effects:
-  - rid: 4776619478875111506
-  projectileData: {fileID: 11400000, guid: 2ead73d21a17e03458a94fc2c311bf48, type: 2}
+  - rid: 4776619478875111505
+  - rid: 4776619506282791062
+  projectileData: {fileID: 11400000, guid: 6b43c944bfd44eb4683ac745fe5c77eb, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 4776619478875111506
+    - rid: 4776619478875111505
+      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+      data:
+        slowPercent: 45
+        duration: 2.5
+    - rid: 4776619506282791062
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 4
+        damage: 2.5

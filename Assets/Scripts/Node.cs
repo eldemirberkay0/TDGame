@@ -9,7 +9,9 @@ public class Node : MonoBehaviour, IPointerClickHandler
     public void BuildTower(TowerData tower)
     {
         if (PlayerStats.Gold < tower.price) { return; }
-        Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation).GetComponent<Tower>().attachedNode = CurrentNode;
+        Tower newTower = Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation).GetComponent<Tower>();
+        newTower.attachedNode = CurrentNode;
+        Tower.CurrentTower = newTower;
         PlayerStats.SetGold(PlayerStats.Gold - tower.price);
         UIManager.Instance.SetTowerMenu(false);
         CurrentNode.isEmpty = false;
