@@ -8,14 +8,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private Enemy enemy;
     private float currentHealth;
 
-    void Awake()
+    private void Awake()
     {
         enemy = GetComponent<Enemy>();
     }
 
-    void Start()
+    private void OnEnable()
     {
         currentHealth = enemy.stats.health;
+        healthBar.fillAmount = currentHealth / enemy.stats.health;
     }
 
     public void TakeDamage(float damage)
@@ -30,6 +31,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         PlayerStats.SetGold(PlayerStats.Gold + enemy.stats.reward);
         WaveManager.Instance.UpdateEnemyCounter();
-        Destroy(gameObject);
+        enemy.EffectHandler.CurrentEffects.Clear();
+        gameObject.SetActive(false);
     }
 }

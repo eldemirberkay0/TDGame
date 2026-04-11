@@ -3,27 +3,28 @@ using UnityEngine;
 
 public static class ObjectPooler
 {
-    public static Dictionary<Transform, List<GameObject>> ObjectPools = new Dictionary<Transform, List<GameObject>>();
+    public static Dictionary<GameObject, List<GameObject>> ObjectPools = new Dictionary<GameObject, List<GameObject>>();
 
-    public static void CreatePool(GameObject obj, int count, Transform container)
+    public static void CreatePool(GameObject obj, int count, Transform container = null)
     {
+        if (ObjectPools.ContainsKey(obj)) { return; }
         List<GameObject> newPool = new List<GameObject>();
-        ObjectPools.Add(container, newPool);
+        ObjectPools.Add(obj, newPool);
         for (int i = 0; i < count; i++)
         {
-            GameObject pooledObject = Object.Instantiate(obj, container.position, container.rotation, container);
+            GameObject pooledObject = Object.Instantiate(obj, parent: container);
             pooledObject.SetActive(false);
             newPool.Add(pooledObject);
         }
     }
 
-    public static GameObject GetObject(Transform container)
+    public static GameObject GetObject(GameObject obj)
     {
-        List<GameObject> poolToSearch = ObjectPools[container];
+        List<GameObject> poolToSearch = ObjectPools[obj];
         for (int i = 0; i < poolToSearch.Count; i++)
         {
             if (!poolToSearch[i].activeInHierarchy) { return poolToSearch[i]; }
         }
-        return null;
+        return Object.Instantiate(obj);
     }
 }

@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Enemy enemy;
 
     private float currentSpeed;
@@ -14,11 +13,13 @@ public class EnemyController : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        enemy.Renderer.color = new Color(1f, 1f, 1f, 1f);
+        speedMultiplier = 1;
+        currentPointIndex = 0;
         animator.speed = enemy.stats.speed * speedMultiplier;
         currentSpeed = enemy.stats.speed * speedMultiplier;
         if (currentSpeed < 0) { currentSpeed = 0; }
@@ -56,13 +57,13 @@ public class EnemyController : MonoBehaviour
     {
         PlayerStats.SetLive(PlayerStats.Lives - 1);
         WaveManager.Instance.UpdateEnemyCounter();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void SetFlip()
     {
-        bool shouldTurnLeft = transform.position.x > LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && !spriteRenderer.flipX;
-        bool shouldTurnRight = transform.position.x < LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && spriteRenderer.flipX;
-        if (shouldTurnLeft || shouldTurnRight) { spriteRenderer.flipX = !spriteRenderer.flipX; }
+        bool shouldTurnLeft = transform.position.x > LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && !enemy.Renderer.flipX;
+        bool shouldTurnRight = transform.position.x < LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && enemy.Renderer.flipX;
+        if (shouldTurnLeft || shouldTurnRight) { enemy.Renderer.flipX = !enemy.Renderer.flipX; }
     }
 }

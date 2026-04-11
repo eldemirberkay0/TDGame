@@ -5,13 +5,15 @@ public class AoEProjectile : ProjectileHit
 {
     protected List<Enemy> enemies = new();
 
-    protected void Awake()
+    protected override void Awake()
     {
-        GetComponent<CircleCollider2D>().radius = GetComponent<Projectile>().projectileData.effectRadius;
+        base.Awake();
+        GetComponent<CircleCollider2D>().radius = projectile.projectileData.effectRadius;
     }
 
     public override void OnArrivedTarget()
     {
+        HandleHitVisual();
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
             foreach (Effect effect in effectsToApply)

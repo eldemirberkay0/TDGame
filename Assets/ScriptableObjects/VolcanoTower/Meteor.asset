@@ -16,4 +16,5 @@ MonoBehaviour:
   speed: 1
   isGuided: 0
   posOffset: {x: 0, y: 0.29, z: 0}
-  effectRadius: 1
+  effectRadius: 0.75
+  hitVisual: {fileID: 6647644609521203012, guid: 0459828ac31f084489ffbac32a9481eb, type: 3}

@@ -1,4 +1,5 @@
 using System;
+using FlexTimer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,9 +31,23 @@ public class GameManager : MonoBehaviour
         OnGameStarted?.Invoke();
     }
 
-    public void GameOver() => SceneManager.LoadScene("GameOverScene");
-    public void Restart() => SceneManager.LoadScene("GameScene");
-    public void Victory() => SceneManager.LoadScene("LevelVictoryScene");
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOverScene");
+        TimerManager.RemoveAllTimers();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("GameScene");
+        TimerManager.RemoveAllTimers();
+    }
+
+    public void Victory()
+    {
+        SceneManager.LoadScene("LevelVictoryScene");
+        TimerManager.RemoveAllTimers();
+    }
 
     private void OnDisable()
     {

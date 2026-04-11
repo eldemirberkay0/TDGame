@@ -10,4 +10,5 @@ public class ProjectileData : ScriptableObject
 
     [Header("Optionals")]
     public float effectRadius;
+    public GameObject hitVisual;
 }

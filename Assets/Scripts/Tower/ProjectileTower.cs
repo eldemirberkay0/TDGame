@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ProjectileTower : Tower
 {
-    [SerializeField] protected Transform projectileContainer;
     [SerializeField] protected GameObject rangeIndicator;
 
     [Header("Optionals")]
@@ -30,7 +29,8 @@ public class ProjectileTower : Tower
 
     protected virtual void Start()
     {
-        ObjectPooler.CreatePool(towerData.projectileData.prefab, 10, projectileContainer);
+        ObjectPooler.CreatePool(towerData.projectileData.prefab, 10, transform);
+        if (towerData.projectileData.hitVisual != null) { ObjectPooler.CreatePool(towerData.projectileData.hitVisual, 10, transform); }
         if (animator != null) { animator.speed = 1 / animTime / towerData.shootInterval; }
         reloadTimer.Start();
     }
@@ -49,10 +49,10 @@ public class ProjectileTower : Tower
     protected virtual IEnumerator Shoot()
     {
         if (manRenderer != null) { manRenderer.flipX = targetEnemy.transform.position.x < transform.position.x; }
-        GameObject projectile = ObjectPooler.GetObject(projectileContainer);
-        projectile.transform.position = transform.position + towerData.projectileData.posOffset;
         if (animator != null) { animator.SetTrigger("ShouldShoot"); }
         yield return new WaitForSeconds(animTime);
+        GameObject projectile = ObjectPooler.GetObject(towerData.projectileData.prefab);
+        projectile.transform.position = transform.position + towerData.projectileData.posOffset;
         if (targetEnemy != null) { projectile.GetComponent<Projectile>().InitProjectile(targetEnemy.transform, towerData.effects); ; }
     }
 

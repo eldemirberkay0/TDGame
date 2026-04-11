@@ -114,37 +114,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1421983875244156657
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6893616446336187978}
-  m_Layer: 8
-  m_Name: IceContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6893616446336187978
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421983875244156657}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6956171439272254539}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7046721343234708190
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +224,6 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6893616446336187978}
   - {fileID: 7028525144852721396}
   - {fileID: 5188496340463341793}
   - {fileID: 110102184014340208}
@@ -373,7 +341,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0bbe2a1eb07c9843bd95b5d710e2aa7, type: 2}
   - {fileID: 11400000, guid: bd872264daa1cd34ab080a0fd7d1adba, type: 2}
   attachedNode: {fileID: 0}
-  projectileContainer: {fileID: 6893616446336187978}
   rangeIndicator: {fileID: 8603195062794872367}
   animator: {fileID: 3272506309977285425}
   manRenderer: {fileID: 2673162829218980821}

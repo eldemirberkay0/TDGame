@@ -37,6 +37,7 @@ public class WaveManager : MonoBehaviour
         UIManager.Instance.SetWaveTimer(true);
         float timeBeforeWave = waveData.durationToStart;
         waveTimer.Restart(timeBeforeWave);
+        foreach (EnemyGroup group in waveData.enemyGroups) { ObjectPooler.CreatePool(group.enemy, group.count + 10, transform); }
     }
 
     public void StartWave()
@@ -60,8 +61,9 @@ public class WaveManager : MonoBehaviour
         {
             for (int i = 0; i < group.count; i++)
             {
-                Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + Random.Range(-0.05f, 0.4f), transform.position.z);
-                Instantiate(group.enemy, spawnPos, transform.rotation).SetActive(true);
+                GameObject enemy = ObjectPooler.GetObject(group.enemy);
+                enemy.transform.position = transform.position;
+                enemy.SetActive(true);
                 enemyCount++;
                 yield return new WaitForSeconds(group.interval);
             }
