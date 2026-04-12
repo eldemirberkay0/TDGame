@@ -301,7 +301,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5992054020637170679, guid: a5f1d7e858ea9204a857e425117b6b90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -338,16 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb8d5d1664b8924b9a59ee37ae9f605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  waypoints:
-  - {fileID: 7403883244191137123, guid: 1fd8ca1489cce994e98c837530c5f1cc, type: 3}
-  - {fileID: 3555883368546257040, guid: 7a069c7e4beb791469d9a3ff1beca209, type: 3}
-  - {fileID: 4653380443173970136, guid: 0920a36854c1df840bb661cdb14be397, type: 3}
-  - {fileID: 9072741537351029875, guid: 4b02cefba574c934295dab4912529585, type: 3}
-  - {fileID: 4940915266292702478, guid: 90f5f9695b94e3c469fdd2a654b1bbc6, type: 3}
-  - {fileID: 376148169818110953, guid: 0570befb594a8aa49ac273e25d083a17, type: 3}
-  - {fileID: 2678926458971362839, guid: 0ffc2f47da4bf6a49be8b1bb1f64d043, type: 3}
-  - {fileID: 7452440270649120820, guid: a2de7b1e7a2c4df4bb32a08cbf1db233, type: 3}
-  - {fileID: 8323662540668267788, guid: df5025b2016963543b31c765b8c4b312, type: 3}
 --- !u!114 &8506722097422543042
 MonoBehaviour:
   m_ObjectHideFlags: 0

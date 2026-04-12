@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
   towerPrefab: {fileID: 1984084865093507816, guid: bf0a8d0e8e09d52488853aed32d15fdd, type: 3}
   price: 75
-  range: 1
+  buildOffset: {x: 0, y: -0.08, z: 0}
+  range: 1.3
   shootInterval: 2
   effects:
   - rid: 4776619478875111504
@@ -25,4 +26,4 @@ MonoBehaviour:
     - rid: 4776619478875111504
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 4
+        damage: 5

@@ -19,7 +19,7 @@ public class PassiveTower : Tower
             Passive passiveClone = passive.Clone();
             passiveClone.Use(this);
             currentPassives.Add(passiveClone);
-            Debug.Log(this + " used!");
+            // Debug.Log(this + " used!");
         }
     }
 

@@ -25,7 +25,7 @@ public class AoEProjectile : ProjectileHit
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7) // Enemy layer is 7
+        if (collision.gameObject.layer == Enemy.LAYER)
         {
             enemies.Add(collision.gameObject.GetComponent<Enemy>());
         }
@@ -33,7 +33,7 @@ public class AoEProjectile : ProjectileHit
 
     protected void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7) // Enemy layer is 7
+        if (collision.gameObject.layer == Enemy.LAYER)
         {
             enemies.Remove(collision.gameObject.GetComponent<Enemy>());
         }

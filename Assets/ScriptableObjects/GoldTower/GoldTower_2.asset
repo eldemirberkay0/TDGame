@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveTowerData
   towerPrefab: {fileID: 4023442601852437929, guid: 0181d981dc0c58a42ab2dadc77c4f940, type: 3}
   price: 250
+  buildOffset: {x: 0, y: -0.18, z: 0}
   passives:
   - rid: 4776619506282790990
   references:
@@ -23,5 +24,5 @@ MonoBehaviour:
       type: {class: GoldPassive, ns: , asm: Assembly-CSharp}
       data:
         interval: 10
-        gold: 53
+        gold: 46
         effectPrefab: {fileID: 7578627070080348632, guid: 957c622034bc749448159c906664f1c8, type: 3}

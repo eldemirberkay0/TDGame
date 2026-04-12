@@ -17,7 +17,7 @@ public class ProjectileMovement : MonoBehaviour
 
     protected void Update()
     {
-        if (isGuided && target == null)
+        if (isGuided && (target == null || !target.gameObject.activeInHierarchy))
         {
             DestroyProjectile();
             return;

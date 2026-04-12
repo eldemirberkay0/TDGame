@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: VolcanoTower_3
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
   towerPrefab: {fileID: 6652138772221062420, guid: 75492a2e72c1432478e07c298bf4d7c1, type: 3}
-  price: 125
-  range: 1.85
+  price: 175
+  range: 2
   shootInterval: 2.65
   effects:
   - rid: 4776619478875111506
@@ -25,4 +25,4 @@ MonoBehaviour:
     - rid: 4776619478875111506
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 5.25
+        damage: 5.75

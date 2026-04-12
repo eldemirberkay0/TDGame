@@ -28,25 +28,29 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         PlayerStats.SetCurrentLevel(1);
+        Debug.Log("Game Started");
         OnGameStarted?.Invoke();
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOverScene");
         TimerManager.RemoveAllTimers();
+        ObjectPooler.ClearPool();
+        SceneManager.LoadScene("GameOverScene");
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("GameScene");
         TimerManager.RemoveAllTimers();
+        ObjectPooler.ClearPool();
+        SceneManager.LoadScene("GameScene");
     }
 
     public void Victory()
     {
-        SceneManager.LoadScene("LevelVictoryScene");
         TimerManager.RemoveAllTimers();
+        ObjectPooler.ClearPool();
+        SceneManager.LoadScene("LevelVictoryScene");
     }
 
     private void OnDisable()

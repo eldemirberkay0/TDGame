@@ -37,7 +37,7 @@ public class WaveManager : MonoBehaviour
         UIManager.Instance.SetWaveTimer(true);
         float timeBeforeWave = waveData.durationToStart;
         waveTimer.Restart(timeBeforeWave);
-        foreach (EnemyGroup group in waveData.enemyGroups) { ObjectPooler.CreatePool(group.enemy, group.count + 10, transform); }
+        foreach (EnemyGroup group in waveData.enemyGroups) { ObjectPooler.CreatePool(group.enemy, group.count + 20, transform); }
     }
 
     public void StartWave()

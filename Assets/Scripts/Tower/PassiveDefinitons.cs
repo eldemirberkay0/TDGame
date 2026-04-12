@@ -39,8 +39,6 @@ public class GoldPassive : IntervalPassive
         }
         PlayerStats.SetGold(PlayerStats.Gold + gold);
         GameObject effect = Object.Instantiate(effectPrefab, tower.transform.position, tower.transform.rotation);
-        Debug.Log(tower.transform.position);
-        Debug.Log(effect.transform.position);
         effect.SetActive(true);
         effect.GetComponentInChildren<Animator>().SetTrigger("ShouldReward");
         effect.GetComponentInChildren<TMP_Text>().text = "+  " + gold.ToString();

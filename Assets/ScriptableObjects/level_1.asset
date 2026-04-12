@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64ff0509f4a5664b81fdf5df9caa210, type: 3}
   m_Name: level_1
   m_EditorClassIdentifier: Assembly-CSharp::Level
-  initialGold: 25000
+  initialGold: 225
   health: 10
   waves:
-  - durationToStart: 900
+  - durationToStart: 30
     maxTimeReward: 0
     enemyGroups:
     - delay: 0
@@ -23,42 +23,70 @@ MonoBehaviour:
       count: 20
       interval: 1.5
     durationToNext: 15
-  - durationToStart: 10
-    maxTimeReward: 200
+  - durationToStart: 15
+    maxTimeReward: 50
     enemyGroups:
     - delay: 0
       enemy: {fileID: 7128418907363821497, guid: b7ad6b54efa178049849d0fe873009a2, type: 3}
       count: 12
-      interval: 2
+      interval: 1.3
     - delay: 3
-      enemy: {fileID: 4694103267489706872, guid: 7b06da7decd71fd488fbb4862fb55c21, type: 3}
+      enemy: {fileID: 4631636517038034831, guid: 8abdb6e2857ef9d4588081ec28d016eb, type: 3}
       count: 8
-      interval: 3
+      interval: 1.1
     durationToNext: 15
-  - durationToStart: 10
-    maxTimeReward: 200
+  - durationToStart: 15
+    maxTimeReward: 55
     enemyGroups:
     - delay: 0
       enemy: {fileID: 7128418907363821497, guid: b7ad6b54efa178049849d0fe873009a2, type: 3}
-      count: 4
-      interval: 2
-    - delay: 3
+      count: 6
+      interval: 1.3
+    - delay: 4
       enemy: {fileID: 4694103267489706872, guid: 7b06da7decd71fd488fbb4862fb55c21, type: 3}
-      count: 4
+      count: 6
       interval: 3
-    - delay: 3
+    - delay: 10
       enemy: {fileID: 4631636517038034831, guid: 8abdb6e2857ef9d4588081ec28d016eb, type: 3}
+      count: 10
+      interval: 1.1
+    durationToNext: 15
+  - durationToStart: 15
+    maxTimeReward: 60
+    enemyGroups:
+    - delay: 4
+      enemy: {fileID: 7128418907363821497, guid: b7ad6b54efa178049849d0fe873009a2, type: 3}
       count: 5
+      interval: 1.3
+    - delay: 0
+      enemy: {fileID: 4694103267489706872, guid: 7b06da7decd71fd488fbb4862fb55c21, type: 3}
+      count: 15
       interval: 3
+    - delay: 5
+      enemy: {fileID: 4631636517038034831, guid: 8abdb6e2857ef9d4588081ec28d016eb, type: 3}
+      count: 15
+      interval: 1.1
+    durationToNext: 15
+  - durationToStart: 15
+    maxTimeReward: 65
+    enemyGroups:
+    - delay: 0
+      enemy: {fileID: 4694103267489706872, guid: 7b06da7decd71fd488fbb4862fb55c21, type: 3}
+      count: 20
+      interval: 3
+    - delay: 4
+      enemy: {fileID: 4631636517038034831, guid: 8abdb6e2857ef9d4588081ec28d016eb, type: 3}
+      count: 20
+      interval: 1.1
     durationToNext: 15
   waypoints:
-  - {fileID: 8900130055899703844, guid: 66be606f0bb4e6f4ea1d24c76aed3e75, type: 3}
-  - {fileID: 9059765908220102076, guid: 74b71386e37a85f45be594ee8622f2d0, type: 3}
-  - {fileID: 5222748952761070977, guid: f60fd91f9e112c846bef23110b22fc92, type: 3}
-  - {fileID: 4056896032216667931, guid: 8abf2214cac6c664bb264a1e7b191f12, type: 3}
-  - {fileID: 7576967373403064103, guid: ee09d67932c20784bab0fea0c02971da, type: 3}
-  - {fileID: 280888300623295758, guid: f0bd7078ee315ea4388b0638cd890670, type: 3}
-  - {fileID: 8295255490596435352, guid: 18b7046d1c159ed42a8781a7a4dd99ac, type: 3}
-  - {fileID: 5750521141827931498, guid: 6ea3653e0c0d97047bdabed719bba0b1, type: 3}
-  - {fileID: 8431616970921649265, guid: 79bae7daeed46c24bb5be8c3b56c4d68, type: 3}
-  - {fileID: 2621945171567185655, guid: de25c5e045f5b894ca677e5b9d174db1, type: 3}
+  - {fileID: 5825494699292425756, guid: 66be606f0bb4e6f4ea1d24c76aed3e75, type: 3}
+  - {fileID: 9214774472866390921, guid: 74b71386e37a85f45be594ee8622f2d0, type: 3}
+  - {fileID: 962926411416128937, guid: f60fd91f9e112c846bef23110b22fc92, type: 3}
+  - {fileID: 3713684847285620021, guid: 8abf2214cac6c664bb264a1e7b191f12, type: 3}
+  - {fileID: 4173974782069957277, guid: ee09d67932c20784bab0fea0c02971da, type: 3}
+  - {fileID: 9042729635770360301, guid: f0bd7078ee315ea4388b0638cd890670, type: 3}
+  - {fileID: 2839048614674527090, guid: 18b7046d1c159ed42a8781a7a4dd99ac, type: 3}
+  - {fileID: 803815118828514789, guid: 6ea3653e0c0d97047bdabed719bba0b1, type: 3}
+  - {fileID: 8330215198908271325, guid: 79bae7daeed46c24bb5be8c3b56c4d68, type: 3}
+  - {fileID: 4439888178990801222, guid: de25c5e045f5b894ca677e5b9d174db1, type: 3}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02bc39dbeae3f8e458dbf6a6a7c3e10d, type: 3}
   m_Name: slime
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  health: 20
-  speed: 0.5
+  health: 16
+  speed: 0.4
   reward: 10

@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public int CurrentPointIndex { get; private set; } = 0;
+
     private Animator animator;
     private Enemy enemy;
 
     private float currentSpeed;
     private float speedMultiplier = 1;
-    private int currentPointIndex = 0;
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class EnemyController : MonoBehaviour
     {
         enemy.Renderer.color = new Color(1f, 1f, 1f, 1f);
         speedMultiplier = 1;
-        currentPointIndex = 0;
+        CurrentPointIndex = 0;
         animator.speed = enemy.stats.speed * speedMultiplier;
         currentSpeed = enemy.stats.speed * speedMultiplier;
         if (currentSpeed < 0) { currentSpeed = 0; }
@@ -29,16 +30,12 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        Vector2 dir = (LevelManager.Instance.LevelData.waypoints[currentPointIndex].position - transform.position).normalized;
-        Vector3 velocity = new Vector3(dir.x, dir.y, 0) * Time.deltaTime * currentSpeed;
-        transform.position += velocity;
-
-        if (Vector2.Distance(transform.position, LevelManager.Instance.LevelData.waypoints[currentPointIndex].position) < 0.1f)
+        transform.position = Vector2.MoveTowards(transform.position, LevelManager.Instance.LevelData.waypoints[CurrentPointIndex].position, Time.deltaTime * currentSpeed);
+        if (Vector2.Distance(transform.position, LevelManager.Instance.LevelData.waypoints[CurrentPointIndex].position) < 0.1f)
         {
-            // Debug.Log("Next waypoint");
-            currentPointIndex++;
-            if (currentPointIndex >= LevelManager.Instance.LevelData.waypoints.Length) { Arrive(); }
-            if (currentPointIndex < LevelManager.Instance.LevelData.waypoints.Length) { SetFlip(); }
+            CurrentPointIndex++;
+            if (CurrentPointIndex >= LevelManager.Instance.LevelData.waypoints.Length) { Arrive(); }
+            if (CurrentPointIndex < LevelManager.Instance.LevelData.waypoints.Length) { SetFlip(); }
         }
     }
 
@@ -62,8 +59,8 @@ public class EnemyController : MonoBehaviour
 
     private void SetFlip()
     {
-        bool shouldTurnLeft = transform.position.x > LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && !enemy.Renderer.flipX;
-        bool shouldTurnRight = transform.position.x < LevelManager.Instance.LevelData.waypoints[currentPointIndex].transform.position.x && enemy.Renderer.flipX;
+        bool shouldTurnLeft = transform.position.x > LevelManager.Instance.LevelData.waypoints[CurrentPointIndex].transform.position.x && !enemy.Renderer.flipX;
+        bool shouldTurnRight = transform.position.x < LevelManager.Instance.LevelData.waypoints[CurrentPointIndex].transform.position.x && enemy.Renderer.flipX;
         if (shouldTurnLeft || shouldTurnRight) { enemy.Renderer.flipX = !enemy.Renderer.flipX; }
     }
 }

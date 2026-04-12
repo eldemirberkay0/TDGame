@@ -22,7 +22,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        Debug.Log(currentHealth);
         healthBar.fillAmount = currentHealth / enemy.stats.health;
         if (currentHealth <= 0) { Die(); }
     }

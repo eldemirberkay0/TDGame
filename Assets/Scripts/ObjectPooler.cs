@@ -27,4 +27,6 @@ public static class ObjectPooler
         }
         return Object.Instantiate(obj);
     }
+
+    public static void ClearPool() => ObjectPools.Clear();
 }

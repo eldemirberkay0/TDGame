@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: IceMageTower_1
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
   towerPrefab: {fileID: 7933004785015783433, guid: c455bc0fd6001524db6c379da9495e2a, type: 3}
-  price: 95
-  range: 1
+  price: 100
+  buildOffset: {x: 0, y: 0, z: 0}
+  range: 1.15
   shootInterval: 1.5
   effects:
   - rid: 4776619478875111505
@@ -26,9 +27,9 @@ MonoBehaviour:
     - rid: 4776619478875111505
       type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
       data:
-        slowPercent: 25
+        slowPercent: 35
         duration: 2
     - rid: 4776619506282791062
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damage: 1.5
+        damage: 2

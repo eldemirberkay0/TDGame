@@ -9,7 +9,7 @@ public class Node : MonoBehaviour, IPointerClickHandler
     public void BuildTower(TowerData tower)
     {
         if (PlayerStats.Gold < tower.price) { return; }
-        Tower newTower = Instantiate(tower.towerPrefab, CurrentNode.transform.position, CurrentNode.transform.rotation).GetComponent<Tower>();
+        Tower newTower = Instantiate(tower.towerPrefab, CurrentNode.transform.position + tower.buildOffset, CurrentNode.transform.rotation).GetComponent<Tower>();
         newTower.attachedNode = CurrentNode;
         Tower.CurrentTower = newTower;
         PlayerStats.SetGold(PlayerStats.Gold - tower.price);
@@ -23,7 +23,7 @@ public class Node : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("clicked");
+            // Debug.Log("clicked");
             if (Tower.CurrentTower != null)
             {
                 Tower.CurrentTower.SetTowerInfo(false);

@@ -15,14 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 161665524840879777, guid: 817d632d12467324d8e876ea236e813d, type: 3}
   speed: 3
   isGuided: 1
-  posOffset: {x: 0, y: 0.3, z: 0}
-  effects:
-  - rid: 141280256256639050
-  references:
-    version: 2
-    RefIds:
-    - rid: 141280256256639050
-      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
-      data:
-        slowPercent: 30
-        duration: 3
+  posOffset: {x: 0, y: 0.32, z: 0}
+  effectRadius: 0
+  hitVisual: {fileID: 0}

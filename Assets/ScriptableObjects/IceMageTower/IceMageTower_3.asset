@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileTowerData
   towerPrefab: {fileID: 7933004785015783433, guid: c455bc0fd6001524db6c379da9495e2a, type: 3}
   price: 195
-  range: 1.4
+  buildOffset: {x: 0, y: 0, z: 0}
+  range: 1.5
   shootInterval: 1.3
   effects:
   - rid: 4776619478875111505

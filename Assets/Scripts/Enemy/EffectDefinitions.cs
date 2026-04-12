@@ -60,7 +60,7 @@ public class SlowEffect : TimerEffect
         targetEnemy = enemy;
         timer = new Timer(duration, OnEffectFinished);
         targetEnemy.Controller.ChangeSpeedPercent(-slowPercent);
-        targetEnemy.Renderer.color = new Color(0, 0.9f, 1f, 1f);
+        targetEnemy.Renderer.color = new Color(0, 0.75f, 1f, 1f);
         targetEnemy.EffectHandler.AddEffect(this);
         timer.Start();
     }

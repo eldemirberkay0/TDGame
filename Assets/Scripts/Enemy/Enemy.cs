@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [HideInInspector] public const int LAYER = 7;
+
     public EnemyData stats;
     public EnemyHealth Health { get; private set; }
     public EnemyController Controller { get; private set; }

@@ -29,8 +29,8 @@ public class ProjectileTower : Tower
 
     protected virtual void Start()
     {
-        ObjectPooler.CreatePool(towerData.projectileData.prefab, 10, transform);
-        if (towerData.projectileData.hitVisual != null) { ObjectPooler.CreatePool(towerData.projectileData.hitVisual, 10, transform); }
+        ObjectPooler.CreatePool(towerData.projectileData.prefab, 10);
+        if (towerData.projectileData.hitVisual != null) { ObjectPooler.CreatePool(towerData.projectileData.hitVisual, 10); }
         if (animator != null) { animator.speed = 1 / animTime / towerData.shootInterval; }
         reloadTimer.Start();
     }
@@ -39,11 +39,12 @@ public class ProjectileTower : Tower
     {
         if (canShoot && targetEnemy != null)
         {
+            targetEnemy = FindLeadEnemy();
             StartCoroutine(Shoot());
             canShoot = false;
             reloadTimer.Restart(towerData.shootInterval);
         }
-        if (targetEnemy == null && enemiesInRange.Count > 0) { targetEnemy = enemiesInRange[0]; }
+        if (targetEnemy == null && enemiesInRange.Count > 0) { targetEnemy = FindLeadEnemy(); }
     }
 
     protected virtual IEnumerator Shoot()
@@ -58,18 +59,18 @@ public class ProjectileTower : Tower
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7) // Enemy layer is 7
+        if (collision.gameObject.layer == Enemy.LAYER)
         {
-            Debug.Log(collision.gameObject);
+            // Debug.Log(collision.gameObject);
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemiesInRange.Add(enemy);
-            if (targetEnemy == null) { targetEnemy = enemy; }
+            if (targetEnemy == null) { targetEnemy = enemiesInRange[0]; }
         }
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7) // Enemy layer is 7
+        if (collision.gameObject.layer == Enemy.LAYER)
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (targetEnemy == enemy) { targetEnemy = null; }
@@ -98,6 +99,17 @@ public class ProjectileTower : Tower
         if (towerData == null) return;
         CircleCollider2D collider = GetComponent<CircleCollider2D>();
         if (collider != null) { collider.radius = towerData.range; }
+    }
+
+    protected Enemy FindLeadEnemy()
+    {
+        if (enemiesInRange.Count == 0) { return null; }
+        Enemy leadEnemy = enemiesInRange[0];
+        foreach (Enemy enemy in enemiesInRange)
+        {
+            if (enemy.Controller.CurrentPointIndex > leadEnemy.Controller.CurrentPointIndex) { leadEnemy = enemy; }
+        }
+        return leadEnemy;
     }
 
     protected void OnDestroy()
